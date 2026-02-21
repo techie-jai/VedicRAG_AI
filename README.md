@@ -1,160 +1,85 @@
-- - - ****- **85895**- ****7179- ****6871- **Additional Scriptures**: Bhagavad Gita, Upanishads, and Vedas samples for comprehensive coverage
-1. ****prosstruuedxt files2. ****rough ths3. ****Thsystmprewrrcition,trronfor us' qury- ****- ****- **nterface**Bothmmad-lin and edy--use text fiesfor gtion with OpnUIan othr RAG ystms
--**CmphnsiveCoveag**: MuplVei srceinclung Rmayana, Mahabharata, Bhaavad Gita, Upanishads, and Vdas## �GttingStrte### Prerequsits
+# 🕉️ Ancient Vedic Wisdom AI: The RAG System
 
--Pyon 3.9+
-- Internet connctionor dataset dwloa
-- Opal: APIkey for LLMntegraion(OpeAI,Anropic, tc.)
--Optionl: Vector dtbse forenhceserc (ComDB, Pinecone, etc.)
+Welcome to the Vedic Wisdom AI project! This repository hosts the codebase for an advanced RetrievalAugmented Generation (RAG) artificial intelligence system deeply rooted in ancient Indian knowledge, granthas, andepics.
 
-### Insalltion
+The core aim of this system is to bridge the gap between profound ancient philosophy and modernday challenges. By conversingwith this AI, users can seek guidance through the lowest and toughest points in their lives, find strategic insights on leadership and "building an empire," or simply explore the ethical and spiritual tenets of Dharma—all grounded entirely in the authentic verses of the original texts.
 
-1. **Clonereposity:**
-   ```bah
- gt lonehttps://ghub.com/yourusnme/vdic-wdom-ai.git
-   cdedic-wisdom-i
-   ```
+## 📖 The Vision
 
-2. **Inalldenencies:**
-   ```bsh
-   pip insall -r requiremnt.txt
-   ```
+For thousands of years, the answers to the complexities of human life, morality, conflict, and governance have been preserved in ancient Sanskrit literature. This project aims to democratize that knowledge.
 
-3.**GeneraeVdi Dataset:**
-   ```bash
-   pyhnVeicDetGenrator.py
-   ```
-   Thisdowoad an procss   - **85,889 verses** from the Itihāsa dataset (Ramayana & Mahabharata)   - **Bagavad Gita** verss
-   -**** selection
-   - **Vedic**hymnsan vrss
+Whether you are:
 
-  Th daet wl besved i the `veic_texts/`decory as 5 managebetxt fl4. **Run tRAG Dmo:**
-   ```bh
-#Inectivedem- sk quessdrcly
-  pythn simp_ra_dmopy      # Test with predefined qeies
-   pytho tet_rag.py
- ```
+- A student seeking clarity and focus
+ A leader or entrepreneur looking for strategic wisdom (akin to the strategicdiplomacy of the Mahabharata)
+- An individual navigating personal grief or moral dilemmas
 
-### 📁 Datast Structur
+This AI acts as a philosophical companion, querying thousands of ancient verses to provide contextual, translated, and highly relevant guidance.
 
-Afer runnngte dt eneratoryou'll ve:
+## 🗄️ The Dataset: Rooted in the Itihāsa Corpus
 
-```
-vedic_texts/
-├── dataset_metadata.jso          # Dtsetstatscsandnfo
-├──vedic_copus_pr_1.txt        # Frst 20000es
-├──ed_corpus_part_2.txt        # Nxt20,000veres
-├── vedic_corpus_pr_3.txt        # Nxt 20,000 verses
-├── vedi_copus_pr_4.txt        # Next 20000vrses
-└── vedi_crpus_part_5.txt        # Reaning veres(5,895)
-```
+This system is initially trained and embedded using the Itihāsa dataset, a monumental corpus detailed in the 2021 research paper: "Itihāsa: A large-scale corpus for Sanskrit to English translation".
 
-**DtasetSmry:**
--**Ttal Veses:** 85,895- **Sources:** Itihasa (85,889), 2), Upishds (2), Vdas(2)
-- **Catgors**Ramayaa (17,179), Mahabharata (68,710), Bagavad Gita (2), Upishad (2), Veda (2)
+### Current Dataset Highlights:
 
-### 🧠 RAG System Usage
+,+ Translation Pairs: A massive collection of Sanskrit shlokas mapped to their English translations
+The Ramayana: Contains 1, translation pairs extracted from 642 chapters, focusing on the life, ethics, and ideals of Lord Rama
+The Mahabharata: Contains ,10 translation pairs extracted from 2,10 chapters, encompassing complex politics, war, duty, and the ultimate teachings of life
+ve coerage
 
-The systm proviespe ws to accss Vicwisd:
+Note: As noted in th foundationalresearh, Sanskrit is highly agglutinative and morpholgically rich. By leeraging this rigorously alignd dataset, ou RAG system cn accurately retrieve the exact shlokas that match the semantic intent of a user's Enlish qury.
+## 🧠 How It Works (The RAG Architecture)
 
-#### IerctiveMod:
-```bash
-pyhon smpl_rg_demopy```Askqusions like:
-- "How o fd courae?"
-- "What isduy nd igheousnss?"- "Tachng abou leadrhip"- "Wisdom about peace and meditai"#### OpenUI ntegration:
-The 5 textfil in`vedic_texts/`aeady o dict uploatoU'sRG sysem. Eac vese sfmattedas:
-```
-Sur:Ithasa
-Catgory:RayanTitle: Verse 1se:1
-Snskri: [Snkrit txt]
-English:[Englsh tralaion]
----
-```
+Knowledge Ingestion: The English translations and their corresonding Sanskit shlka from the datae ae processed and stored in strctr te
+Contextual Retrieval: When a user asks a question (e.g., "How do I find courage when I have lost everything?"), the system seaches thrh the verses for temos relevant teachings from te epic
+Augmented Generation: e e sents the retrieved shlokas ith pope ontext, cats and inepetatis the erse
 
-#### Programmtic Acss:
-```python
-fromsimpl_ra_demo importVedcRAGDemo
+## 🚀 Features
 
-rag = VdiRAGDemo()
-resps =rag.generate_repnse("couagendstrengt")
-pint(respnse```
-### 🔧 Advaced ConfigurFr ehancdfeaurs,cae a `.env` file```bash
-#Fr LLM itgraion
-LLM_API_KEY=your_a_key_ere
-LLM_MODEL=gpt-3.5-tro
+Authentic Citations: Every piece of advice provided by the AI is backed by a specific quoted shloka (in Sanskrit/Devanagari) along with its English translation
+Context-Aware Guidance: Capable of mapping abstract ancient concepts (like Karma, Dharma, and Niti) to modern psychological and strategic scenarios
+Interactive I:  coneratol interae dese oree reltie dcous diage
 
-# For vetr database
-VECTOR_DB_URL=_db_rl_h
-EMBEDDING_MODEL=allMniLM-L6-v2
-```
+�️ e ad
 
-### 📊 Syte Cpablies
+ie the fondtion s it n the aaaa and ahhratae th ors  ic iteraeis vast pedates t the ecto datase will nlde:
 
-Te RAG sysem can rovde gidane n:
+he Upanishads  dee etasil and irtal eies.
 
-- **Psol Dlopment**: Courage, , selfdscpline- **Leaership& Gornance**: Strateg thnking, uty, rghteouses
-- **Life Chngs**: Overcomig avrsity, fidng pace- **PhlosohicalQuesto**: Dhrma,kama,pupos of lf
-- **Rlaionhips**: Duy o family, friendships, society## 🗺️ Future RoadmapWhil hefodaton is bust, future enhaces willncud
-- **Expanded orpus**: Mo Upanishds, compleVeds,Puraas
--**SmantcSach**:Vembeingsfdeeperundrtanding- **Web nterface**: Stemlt-based usr intfac- **Multiple angages**: Hindi, Sanskit tansiterations, otr tanslations- **AdioSuppor**: Cantingnd ronunc guides- **Commentar Integraion**: Classical cmmetaries byAchras## Aras focontributon:
+he eas    tra o ation iet olege.
 
-- **Datase Expanion**: Addingmoe Vdc texts and traslatos
-- **Alorim Improvemnt**:Enhancing
-- **UI/UX**:Buil betteriterfacs
--**Documentaion**: Improving guides and planaions
-- **Research**: Analysifpatrns acrossVdi lieur
+urns  eeti haasetg, hanaa iti  i rati, vres vice  satecrat, ecomis ### a uma or
+Bhagavad Gita (anae eie: nhaned multilayeed omnta etiea.
 
-###CntibutionGudeles:
-1. Forkepsiory
-2.Crta aturbanch
-3. Mak your changswih prperdcumntatio
-4. Submitprest with clar decripion## -**RP**:ignn these anciet texts
-- **Hugg Face**: For hosting the datasets and providing the infrastructure
-- **Open Source Community**: For the tools and libraries that make this project possible
+ etting tarte
+eistes
+ton
 
-## 📄 License
+I es  r refrred  OpenI Athri or oce ie maa
 
-This project is open-sourceand available under  MIT Licen.The ts themselves are in the public domain, representing the shared cultural heritage of humanity.
+Ver atase instace eg iecone sor a hro)
 
-## 🆘 Support
+nation
 
-If you encouner any issue:
+one te ret:
 
-1 Check the troubleshooting section below
-2. Ensure all dependencies are properly installed
-3. Verify internet connection for dataset download
-4. Open an issue on GitHub with detailed description
+ onetpihubcoyouruere-ismaitihtpiucoernaevewisdom-ii
+d veicidinsalleendenie
+ip insa r reieetstt
 
-### Troubleshooting:
 
-**Issue**: ModuleNotFoundError for 'datasets'
-**Solution**: Run `pip install datasets huggingface_hub`
 
-**Issue**: Dataset download fails
-**Solution**: Check internet connection and try again, the script has retry logic
+et unironemnt ile:
+Creaet a n ei er ector dd or  es
+Iraieere
+Lurrlher
+u th apiation
+yton ay
 
-**Issue**: Memory issues with large files
-**Solution**: The dataset is already split into manageable chunks of 20,000 verses each
+ 🤝 Contributing
 
----
+We welcome contributions from developers, Sanskrit scholars, and history enthusiasts!er its reiningthe  retrieval accuracy ding ne texts o te ectrate or iin the rot eae fee ree to oen a ull equest
 
-**🕉️ Start your journey into ancient wisdom today!**
+ 📜Acknowledgements
 
-*May this system bring clarity, guidance, and wisdom to all who seek it!* 🙏
-
----
-
-### Quick Start Commands:
-```bash
-# Setup
-pip install -r requirements.txt
-
-# Generate dataset
-python VedicDatasetGenerator.py
-
-# Test system
-python test_rag.py
-
-# Interactive mode
-python simple_rag_demo.py
-```
+ Itihāsa esearch aper Rahul Aralikatte, Miryam de Lhoneux, Anoop Kunchukuttan, Anders Søgaard for their incredible work in digitizing and aligngin these e ancinttexts.
