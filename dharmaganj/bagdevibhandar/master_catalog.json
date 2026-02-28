@@ -6,5 +6,105 @@
         "ratnasagara",
         "ratnaranjaka"
     ],
-    "catalog": []
+    "catalog": [
+        {
+            "filename": "vedic_corpus_part_1.txt",
+            "nalanda_building": "ratnodadhi",
+            "subject_domain": "shruti",
+            "path": "dharmaganj/ratnodadhi/shruti/raw/vedic_corpus_part_1.txt",
+            "lipi": "Devanagari",
+            "shakha": "Multiple",
+            "bhashya": "None"
+        },
+        {
+            "filename": "vedic_corpus_part_2.txt",
+            "nalanda_building": "ratnodadhi",
+            "subject_domain": "shruti",
+            "path": "dharmaganj/ratnodadhi/shruti/raw/vedic_corpus_part_2.txt",
+            "lipi": "Devanagari",
+            "shakha": "Multiple",
+            "bhashya": "None"
+        },
+        {
+            "filename": "vedic_corpus_part_3.txt",
+            "nalanda_building": "ratnodadhi",
+            "subject_domain": "shruti",
+            "path": "dharmaganj/ratnodadhi/shruti/raw/vedic_corpus_part_3.txt",
+            "lipi": "Devanagari",
+            "shakha": "Multiple",
+            "bhashya": "None"
+        },
+        {
+            "filename": "vedic_corpus_part_4.txt",
+            "nalanda_building": "ratnodadhi",
+            "subject_domain": "shruti",
+            "path": "dharmaganj/ratnodadhi/shruti/raw/vedic_corpus_part_4.txt",
+            "lipi": "Devanagari",
+            "shakha": "Multiple",
+            "bhashya": "None"
+        },
+        {
+            "filename": "vedic_corpus_part_5.txt",
+            "nalanda_building": "ratnodadhi",
+            "subject_domain": "shruti",
+            "path": "dharmaganj/ratnodadhi/shruti/raw/vedic_corpus_part_5.txt",
+            "lipi": "Devanagari",
+            "shakha": "Multiple",
+            "bhashya": "None"
+        },
+        {
+            "filename": "itihasa_part_1.txt",
+            "nalanda_building": "ratnaranjaka",
+            "subject_domain": "itihasa",
+            "path": "dharmaganj/ratnaranjaka/itihasa/raw/itihasa_part_1.txt",
+            "lipi": "Devanagari",
+            "shakha": "Traditional",
+            "bhashya": "None"
+        },
+        {
+            "filename": "itihasa_part_2.txt",
+            "nalanda_building": "ratnaranjaka",
+            "subject_domain": "itihasa",
+            "path": "dharmaganj/ratnaranjaka/itihasa/raw/itihasa_part_2.txt",
+            "lipi": "Devanagari",
+            "shakha": "Traditional",
+            "bhashya": "None"
+        },
+        {
+            "filename": "itihasa_part_3.txt",
+            "nalanda_building": "ratnaranjaka",
+            "subject_domain": "itihasa",
+            "path": "dharmaganj/ratnaranjaka/itihasa/raw/itihasa_part_3.txt",
+            "lipi": "Devanagari",
+            "shakha": "Traditional",
+            "bhashya": "None"
+        },
+        {
+            "filename": "itihasa_part_4.txt",
+            "nalanda_building": "ratnaranjaka",
+            "subject_domain": "itihasa",
+            "path": "dharmaganj/ratnaranjaka/itihasa/raw/itihasa_part_4.txt",
+            "lipi": "Devanagari",
+            "shakha": "Traditional",
+            "bhashya": "None"
+        },
+        {
+            "filename": "itihasa_part_5.txt",
+            "nalanda_building": "ratnaranjaka",
+            "subject_domain": "itihasa",
+            "path": "dharmaganj/ratnaranjaka/itihasa/raw/itihasa_part_5.txt",
+            "lipi": "Devanagari",
+            "shakha": "Traditional",
+            "bhashya": "None"
+        },
+        {
+            "filename": "Research_Paper_on_dataset_translation_2021-wat-1.22.pdf",
+            "nalanda_building": "bagdevibhandar",
+            "subject_domain": "schema_definitions",
+            "path": "dharmaganj/bagdevibhandar/schema_definitions/Research_Paper_on_dataset_translation_2021-wat-1.22.pdf",
+            "lipi": "Latin",
+            "shakha": "Academic",
+            "bhashya": "Reference"
+        }
+    ]
 }

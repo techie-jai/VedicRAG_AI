@@ -65,3 +65,15 @@ When placing new data, ask:
 3. "Is this narrative or artistic?" ➡️ **Ratnaranjaka**
 
 By adhering to this structure, we ensure that our RAG system doesn't just "search text," but navigates the "Sea of Jewels" with the same scientific precision as the masters of Nalanda.
+
+## 6. Current Repository Status
+The repository is currently seeded with foundational and narrative data:
+
+| Building | Subject | Data Source | Files | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| **Ratnodadhi** | `shruti` | Vedic Corpus, Bhagavad Gita | 5 (`raw/`) | Initialized |
+| **Ratnaranjaka** | `itihasa` | Ramayana, Mahabharata | 5 (`raw/`) | Initialized |
+| **Ratnasagara** | Technical | Ayurveda, Nyaya, etc. | 0 | Awaiting Ingestion |
+| **Bagdevibhandar** | Metadata | Master Catalog, Schemas | 3 | Active |
+
+All data is indexed in `bagdevibhandar/master_catalog.json` with appropriate metadata fields (Lipi, Shakha, Domain).
