@@ -37,6 +37,21 @@ vedic_texts/
 - Created requirements.txt with all dependencies
 - Provided clear usage examples
 
+### 6. **SARIT Corpus Integration & Vedic Refinement (V2.2 Update)**
+- **Integrated 62 high-quality XML manuscripts** from the SARIT corpus.
+- **Vedic Dataset Refinement**: Replaced older fragments with a unified 85,895-verse corpus including Ramayana, Mahabharata, and Gita.
+- **Master Catalog**: Updated `dharmaganj/bagdevibhandar/master_catalog.json` with 72 total entries.
+
+### 📊 Repository Status (Dashboard V2.2)
+
+| Building | Subject/Domain | File Count | Format | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| **Ratnodadhi** | `shruti`, `sutra`, `upanishad` | 12 | .txt, .xml | **Ingested** |
+| **Ratnasagara** | `cikitsavidya`, `nyaya`, `vyakarana`, `arthashastra` | 45 | .xml | **Ingested** |
+| **Ratnaranjaka** | `itihasa` (Ramayana/Gita/Mahabharata), `purana`, `kavya` | 14 | .txt, .xml | **Ingested** |
+| **Bagdevibhandar** | `metadata` | 1 | .json | **Active** |
+| **Total Items** | | **72** | | **Deduplicated** |
+
 ## 🚀 Ready to Use
 
 Your Vedic RAG system is now ready! Here's how to use it:
