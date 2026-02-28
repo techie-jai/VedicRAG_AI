@@ -11,7 +11,7 @@ import time
 
 class VedicDatasetGenerator:
     def __init__(self):
-        self.output_dir = "vedic_texts"
+        self.output_dir = "nalanda_library"
         os.makedirs(self.output_dir, exist_ok=True)
         
     def download_itihasa_dataset(self) -> List[Dict[str, Any]]:
@@ -197,7 +197,7 @@ class VedicDatasetGenerator:
         file_index = 1
         entry_count = 0
         
-        current_file = open(f"{self.output_dir}/vedic_corpus_part_{file_index}.txt", "w", encoding="utf-8")
+        current_file = open(f"{self.output_dir}/nalanda_corpus_part_{file_index}.txt", "w", encoding="utf-8")
         
         # Create metadata file
         metadata = {
@@ -228,14 +228,14 @@ class VedicDatasetGenerator:
             entry_count += 1
             if entry_count >= max_entries_per_file:
                 current_file.close()
-                metadata['files_created'].append(f"vedic_corpus_part_{file_index}.txt")
+                metadata['files_created'].append(f"nalanda_corpus_part_{file_index}.txt")
                 file_index += 1
-                current_file = open(f"{self.output_dir}/vedic_corpus_part_{file_index}.txt", "w", encoding="utf-8")
+                current_file = open(f"{self.output_dir}/nalanda_corpus_part_{file_index}.txt", "w", encoding="utf-8")
                 entry_count = 0
                 print(f"  Created file {file_index-1}, starting file {file_index}...")
         
         current_file.close()
-        metadata['files_created'].append(f"vedic_corpus_part_{file_index}.txt")
+        metadata['files_created'].append(f"nalanda_corpus_part_{file_index}.txt")
         
         # Save metadata
         with open(f"{self.output_dir}/dataset_metadata.json", "w", encoding="utf-8") as f:

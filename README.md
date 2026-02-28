@@ -67,21 +67,43 @@ This system begins with the magnificent **Itihāsa dataset**—a fragment of the
 
 ### Current Digital Collection:
 
-- **📚 85,895+ Ancient Verses**: Carefully preserved Sanskrit shlokas with precise English translations
+**Primary Dataset: Itihasa Corpus (85,889 verses)**
 - **📖 The Ramayana**: 17,179 verses on dharma, leadership, and ideal conduct through Lord Rama's journey
 - **⚔️ The Mahabharata**: 68,710 verses covering statecraft, strategy, ethics, and human psychology
-- **🕉️ Additional Scriptures**: Bhagavad Gita, Upanishads, and foundational Vedic texts
+
+**Foundational Scriptures (6 verses)**
+- **🕉️ Bhagavad Gita**: 2 essential verses (currently limited - needs expansion to 700 verses)
+- **🧘 Upanishads**: 2 sample verses from Isha and Katha Upanishads
+- **📿 Vedas**: 2 sample verses from Rig Veda and Yajur Veda
+
+### Data Structure & Organization
+
+```
+nalanda_library/
+├── library_metadata.json          # Statistics of our digital reconstruction
+├── nalanda_corpus_part_1.txt      # First 20,000 verses (mainly Ramayana)
+├── nalanda_corpus_part_2.txt      # Next 20,000 verses (mainly Mahabharata)
+├── nalanda_corpus_part_3.txt      # Next 20,000 verses (mainly Mahabharata)
+├── nalanda_corpus_part_4.txt      # Next 20,000 verses (mainly Mahabharata)
+└── nalanda_corpus_part_5.txt      # Final verses + supplementary texts
+```
 
 ### This is Just the Beginning
 
-Our current collection represents **less than 1%** of Nalanda's original library. We seek to expand this to include:
+Our current collection represents **less than 1%** of Nalanda's original library. We urgently need to expand:
 
-- **🔬 Scientific Treatises**: Sushruta Samhita (surgery), Charaka Samhita (medicine)
+**Critical Missing Scientific Texts:**
+- **🔬 Medical Treatises**: Sushruta Samhita (surgery), Charaka Samhita (medicine)
 - **📐 Mathematical Texts**: Aryabhatiya, Brahmasphutasiddhanta, Lilavati
 - **🏛️ Architectural Manuals**: Vastu Shastra, Shilpa Shastra
 - **⚖️ Political Science**: Kautilya's Arthashastra, Manusmriti
 - **🌿 Agricultural Wisdom**: Krishi Parashara, Vrikshayurveda
 - **🎭 Arts & Aesthetics**: Natya Shastra, Kamasutra
+
+**Scriptural Expansion Needed:**
+- **Complete Bhagavad Gita**: All 700 verses (currently only 2)
+- **Major Upanishads**: Complete Katha, Isha, Mundaka, Mandukya, Prashna
+- **Complete Vedas**: Rig Veda (10,552 verses), Yajur, Sama, Atharva Vedas
 
 ## 🧠 The Digital Nalanda Architecture: How Our RAG System Works
 
@@ -190,17 +212,41 @@ We're building a comprehensive platform that makes Nalanda's knowledge accessibl
 ```
 nalanda_library/
 ├── library_metadata.json          # Statistics of our digital reconstruction
-├── nalanda_corpus_part_1.txt      # First collection of scientific treatises
-├── nalanda_corpus_part_2.txt      # Mathematical and astronomical texts
-├── nalanda_corpus_part_3.txt      # Medical and healing wisdom
-├── nalanda_corpus_part_4.txt      # Architectural and engineering knowledge
-└── nalanda_corpus_part_5.txt      # Philosophical and governance systems
+├── nalanda_corpus_part_1.txt      # First 20,000 verses (mainly Ramayana)
+├── nalanda_corpus_part_2.txt      # Next 20,000 verses (mainly Mahabharata)
+├── nalanda_corpus_part_3.txt      # Next 20,000 verses (mainly Mahabharata)
+├── nalanda_corpus_part_4.txt      # Next 20,000 verses (mainly Mahabharata)
+└── nalanda_corpus_part_5.txt      # Final verses + supplementary texts
 ```
 
 ### Current Collection Summary:
 - **Total Verses:** 85,895 (of 9,000,000+ original manuscripts)
-- **Sources:** Itihasa (85,889), Bhagavad Gita (2), Upanishads (2), Vedas (2)
-- **Categories:** Ramayana (17,179), Mahabharata (68,710), Bhagavad Gita (2), Upanishad (2), Veda (2)
+- **Primary Sources:** Itihasa Corpus (85,889 verses)
+  - Ramayana: 17,179 verses
+  - Mahabharata: 68,710 verses
+- **Supplementary Sources:** 6 verses
+  - Bhagavad Gita: 2 verses (needs expansion to 700)
+  - Upanishads: 2 verses (Isha, Katha samples)
+  - Vedas: 2 verses (Rig, Yajur samples)
+
+### Data Format for RAG System
+
+Each verse follows this structured format:
+```
+Source: Itihasa
+Category: Mahabharata
+Title: Verse 1
+Verse: 1
+Sanskrit: [Original Sanskrit text]
+English: [Precise English translation]
+---
+```
+
+This structure enables:
+- **Precise retrieval** by source, category, or verse number
+- **Contextual understanding** with metadata
+- **Scalable expansion** for new texts
+- **RAG optimization** with clean formatting
 
 ## 🧠 Accessing Nalanda's Wisdom
 
