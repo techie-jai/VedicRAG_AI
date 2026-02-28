@@ -78,18 +78,18 @@ The repository is currently seeded with foundational and narrative data:
 | | `nyaya_pramana` | 27 | .xml | Ingested |
 | | `vyakarana` | 2 | .xml | Ingested |
 | | `arthashastra` | 1 | .xml | Ingested |
-| **Ratnaranjaka** | `itihasa` | 10 | .txt | Ingested |
+| **Ratnaranjaka** | `itihasa` | 5 | .txt | Ingested |
 | | `purana` | 2 | .xml | Ingested |
 | | `kavya` | 7 | .xml | Ingested |
 | **Bagdevibhandar** | `metadata` | 1 | .json | Active |
 
-**Total Ingested Manuscripts/Parts**: 77
+**Total Ingested Manuscripts/Parts**: 72
 
-**Note on Ramayana & Bhagavad Gita**: The `itihasa` domain in Ratnaranjaka contains the complete **Ramayana** (17,179 verses) and **Mahabharata** (68,710 verses) across 10 managed text files. Sample verses from the **Bhagavad Gita** are integrated into the foundational layers of the corpus.
+**Note on Ramayana & Bhagavad Gita**: The `itihasa` domain in Ratnaranjaka contains the complete **Ramayana** (17,179 verses) and **Mahabharata** (68,710 verses) across 5 managed text files (`itihasa_corpus_v2_part_1.txt` to `part_5.txt`). These files use an enhanced schema including source, category, and verse metadata. Sample verses from the **Bhagavad Gita** are also integrated into this corpus.
 
 ## 7. Change Log
 ### V2.2 (March 2026)
 - **SARIT Integration**: Added 62 high-quality XML manuscripts from the SARIT corpus.
-- **Vedic Dataset Generation**: Successfully ran `VedicDatasetGenerator.py` to pull 85,895 verses of Ramayana, Mahabharata, and Gita.
+- **Vedic Dataset Refinement**: Replaced older `itihasa_part_*.txt` with the more comprehensive `itihasa_corpus_v2_part_*.txt` containing 85,895 verses of Ramayana, Mahabharata, and Gita.
 - **Structural Expansion**: Created sub-domains for Ayurveda, Logic, Grammar, and Kavya.
-- **Master Catalog Update**: All 77 files indexed in `bagdevibhandar/master_catalog.json`. with appropriate metadata fields (Lipi, Shakha, Domain).
+- **Master Catalog Update**: All 72 files indexed in `bagdevibhandar/master_catalog.json` with correct metadata.

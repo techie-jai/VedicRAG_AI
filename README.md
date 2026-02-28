@@ -74,16 +74,21 @@ All new data is stored in the `dharmaganj/` directory structure with full metada
 
 This system begins with the magnificent **Itihāsa dataset**—a fragment of the vast knowledge that once filled Nalanda's halls. This monumental corpus is detailed in the 2021 research paper: "Itihāsa: A large-scale corpus for Sanskrit to English translation".
 
-### Current Digital Collection:
+### Current Digital Collection (Dashboard V2.2):
 
-**Primary Dataset: Itihasa Corpus (85,889 verses)**
-- **📖 The Ramayana**: 17,179 verses on dharma, leadership, and ideal conduct through Lord Rama's journey
-- **⚔️ The Mahabharata**: 68,710 verses covering statecraft, strategy, ethics, and human psychology
+| Building | Subject/Domain | File Count | Format | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| **Ratnodadhi** | `shruti`, `sutra`, `upanishad` | 12 | .txt, .xml | **Ingested** |
+| **Ratnasagara** | `cikitsavidya`, `nyaya`, `vyakarana`, `arthashastra` | 45 | .xml | **Ingested** |
+| **Ratnaranjaka** | `itihasa` (Ramayana/Gita/Mahabharata), `purana`, `kavya` | 14 | .txt, .xml | **Ingested** |
+| **Bagdevibhandar** | `metadata` | 1 | .json | **Active** |
+| **Total Items** | | **72** | | **Deduplicated** |
 
-**Foundational Scriptures (6 verses)**
-- **🕉️ Bhagavad Gita**: 2 essential verses (currently limited - needs expansion to 700 verses)
-- **🧘 Upanishads**: 2 sample verses from Isha and Katha Upanishads
-- **📿 Vedas**: 2 sample verses from Rig Veda and Yajur Veda
+**Primary Dataset Highlights:**
+- **� The Ramayana**: 17,179 verses (within `itihasa_corpus_v2_part_1.txt`)
+- **⚔️ The Mahabharata**: 68,710 verses (across `itihasa_corpus_v2_part_1-5.txt`)
+- **🕉️ Bhagavad Gita**: Sample verses integrated for philosophical grounding.
+- **� SARIT Corpus**: 62 high-quality XML manuscripts on Medicine, Logic, and Grammar.
 
 ### Data Structure & Organization
 
