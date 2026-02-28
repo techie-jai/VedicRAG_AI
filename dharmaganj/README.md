@@ -69,11 +69,27 @@ By adhering to this structure, we ensure that our RAG system doesn't just "searc
 ## 6. Current Repository Status
 The repository is currently seeded with foundational and narrative data:
 
-| Building | Subject | Data Source | Files | Status |
+| Building | Subject/Domain | File Count (Raw) | Format | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **Ratnodadhi** | `shruti` | Vedic Corpus, Bhagavad Gita | 5 (`raw/`) | Initialized |
-| **Ratnaranjaka** | `itihasa` | Ramayana, Mahabharata | 5 (`raw/`) | Initialized |
-| **Ratnasagara** | Technical | Ayurveda, Nyaya, etc. | 0 | Awaiting Ingestion |
-| **Bagdevibhandar** | Metadata | Master Catalog, Schemas | 3 | Active |
+| **Ratnodadhi** | `shruti` | 5 | .txt | Ingested |
+| | `sutra` | 5 | .xml | Ingested |
+| | `upanishad` | 2 | .xml | Ingested |
+| **Ratnasagara** | `cikitsavidya` | 15 | .xml | Ingested |
+| | `nyaya_pramana` | 27 | .xml | Ingested |
+| | `vyakarana` | 2 | .xml | Ingested |
+| | `arthashastra` | 1 | .xml | Ingested |
+| **Ratnaranjaka** | `itihasa` | 10 | .txt | Ingested |
+| | `purana` | 2 | .xml | Ingested |
+| | `kavya` | 7 | .xml | Ingested |
+| **Bagdevibhandar** | `metadata` | 1 | .json | Active |
 
-All data is indexed in `bagdevibhandar/master_catalog.json` with appropriate metadata fields (Lipi, Shakha, Domain).
+**Total Ingested Manuscripts/Parts**: 77
+
+**Note on Ramayana & Bhagavad Gita**: The `itihasa` domain in Ratnaranjaka contains the complete **Ramayana** (17,179 verses) and **Mahabharata** (68,710 verses) across 10 managed text files. Sample verses from the **Bhagavad Gita** are integrated into the foundational layers of the corpus.
+
+## 7. Change Log
+### V2.2 (March 2026)
+- **SARIT Integration**: Added 62 high-quality XML manuscripts from the SARIT corpus.
+- **Vedic Dataset Generation**: Successfully ran `VedicDatasetGenerator.py` to pull 85,895 verses of Ramayana, Mahabharata, and Gita.
+- **Structural Expansion**: Created sub-domains for Ayurveda, Logic, Grammar, and Kavya.
+- **Master Catalog Update**: All 77 files indexed in `bagdevibhandar/master_catalog.json`. with appropriate metadata fields (Lipi, Shakha, Domain).

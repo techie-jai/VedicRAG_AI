@@ -37,6 +37,14 @@ vedic_texts/
 - Created requirements.txt with all dependencies
 - Provided clear usage examples
 
+### 6. **SARIT Corpus Integration (V2.2 Update)**
+- **Integrated 62 XML manuscripts**
+- **Buildings Populated**:
+  - **Ratnasagara**: Added 45+ technical treatises on Medicine (Ayurveda), Logic (Nyaya), and Grammar.
+  - **Ratnaranjaka**: Added Puranas and classical Poetry (Kavya).
+  - **Ratnodadhi**: Added Yoga Sutras and Advaita texts.
+- **Master Catalog**: Updated `dharmaganj/bagdevibhandar/master_catalog.json` with 72 total entries.
+
 ## 🚀 Ready to Use
 
 Your Vedic RAG system is now ready! Here's how to use it:

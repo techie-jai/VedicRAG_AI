@@ -61,6 +61,15 @@ Imagine accessing **Nalanda's scientific wisdom** for today's challenges:
 
 This isn't about replacing modern science—it's about **integrating proven ancient wisdom** with contemporary knowledge for **holistic solutions**.
 
+### V2.2 Update: SARIT Corpus Integration (March 2026)
+We have successfully integrated the ** (Sanskrit Relational Interface)** corpus into the Dharmaganj digital repository. This update adds **60+ high-quality XML manuscripts** across multiple scientific and philosophical domains.
+
+- **Ratnasagara (Technical)**: Added 45+ treatises on Ayurveda (Cikitsavidya), Nyaya (Logic), Vyakarana (Grammar), and Arthashastra (Statecraft).
+- **Ratnaranjaka (Narrative)**: Added Puranas and classical Kavya (Poetry/Drama).
+- **Ratnodadhi (Foundational)**: Added Yoga Sutras, Advaita treatises, and foundational philosophical texts.
+
+All new data is stored in the `dharmaganj/` directory structure with full metadata in `bagdevibhandar/master_catalog.json`.
+
 ## 🗄️ Reconstructing the Nalanda Library: Our Digital Corpus
 
 This system begins with the magnificent **Itihāsa dataset**—a fragment of the vast knowledge that once filled Nalanda's halls. This monumental corpus is detailed in the 2021 research paper: "Itihāsa: A large-scale corpus for Sanskrit to English translation".

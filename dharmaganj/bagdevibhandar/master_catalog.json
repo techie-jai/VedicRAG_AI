@@ -663,6 +663,51 @@
             "lipi": "Devanagari",
             "shakha": "SARIT",
             "bhashya": "None"
+        },
+        {
+            "filename": "nalanda_corpus_part_1.txt",
+            "nalanda_building": "ratnaranjaka",
+            "subject_domain": "itihasa",
+            "path": "dharmaganj/ratnaranjaka/itihasa/raw/nalanda_corpus_part_1.txt",
+            "lipi": "Devanagari",
+            "shakha": "Traditional",
+            "bhashya": "None"
+        },
+        {
+            "filename": "nalanda_corpus_part_2.txt",
+            "nalanda_building": "ratnaranjaka",
+            "subject_domain": "itihasa",
+            "path": "dharmaganj/ratnaranjaka/itihasa/raw/nalanda_corpus_part_2.txt",
+            "lipi": "Devanagari",
+            "shakha": "Traditional",
+            "bhashya": "None"
+        },
+        {
+            "filename": "nalanda_corpus_part_3.txt",
+            "nalanda_building": "ratnaranjaka",
+            "subject_domain": "itihasa",
+            "path": "dharmaganj/ratnaranjaka/itihasa/raw/nalanda_corpus_part_3.txt",
+            "lipi": "Devanagari",
+            "shakha": "Traditional",
+            "bhashya": "None"
+        },
+        {
+            "filename": "nalanda_corpus_part_4.txt",
+            "nalanda_building": "ratnaranjaka",
+            "subject_domain": "itihasa",
+            "path": "dharmaganj/ratnaranjaka/itihasa/raw/nalanda_corpus_part_4.txt",
+            "lipi": "Devanagari",
+            "shakha": "Traditional",
+            "bhashya": "None"
+        },
+        {
+            "filename": "nalanda_corpus_part_5.txt",
+            "nalanda_building": "ratnaranjaka",
+            "subject_domain": "itihasa",
+            "path": "dharmaganj/ratnaranjaka/itihasa/raw/nalanda_corpus_part_5.txt",
+            "lipi": "Devanagari",
+            "shakha": "Traditional",
+            "bhashya": "None"
         }
     ]
 }
