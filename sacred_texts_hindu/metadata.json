@@ -1,0 +1,471 @@
+{
+  "source": "https://www.sacred-texts.com/hin/index.htm",
+  "total_texts": 79,
+  "texts": {
+    "Rig Veda": {
+      "url": "https://www.sacred-texts.com/hin/rigveda.htm",
+      "category": "Vedas",
+      "status": "failed - fetch error"
+    },
+    "Rig-Veda (Sanskrit)": {
+      "url": "https://www.sacred-texts.com/hin/rvsan/index.htm",
+      "category": "Vedas",
+      "file": "sacred_texts_hindu\\Vedas\\Rig-Veda Sanskrit.txt",
+      "status": "success"
+    },
+    "Vedic Hymns Part I (SBE 32)": {
+      "url": "https://www.sacred-texts.com/hin/sbe32/index.htm",
+      "category": "Vedas",
+      "file": "sacred_texts_hindu\\Vedas\\Vedic Hymns Part I SBE 32.txt",
+      "status": "success"
+    },
+    "Vedic Hymns Part II (SBE 46)": {
+      "url": "https://www.sacred-texts.com/hin/sbe46/index.htm",
+      "category": "Vedas",
+      "file": "sacred_texts_hindu\\Vedas\\Vedic Hymns Part II SBE 46.txt",
+      "status": "success"
+    },
+    "A Vedic Reader for Students": {
+      "url": "https://www.sacred-texts.com/hin/vedaread.htm",
+      "category": "Vedas",
+      "file": "sacred_texts_hindu\\Vedas\\A Vedic Reader for Students.txt",
+      "status": "success"
+    },
+    "The Sama-Veda": {
+      "url": "https://www.sacred-texts.com/hin/sv.htm",
+      "category": "Vedas",
+      "file": "sacred_texts_hindu\\Vedas\\The Sama-Veda.txt",
+      "status": "success"
+    },
+    "The Yajur Veda (Taittiriya Sanhita)": {
+      "url": "https://www.sacred-texts.com/hin/yv.htm",
+      "category": "Vedas",
+      "status": "failed - fetch error"
+    },
+    "The Texts of the White Yajurveda": {
+      "url": "https://www.sacred-texts.com/hin/wyv/index.htm",
+      "category": "Vedas",
+      "file": "sacred_texts_hindu\\Vedas\\The Texts of the White Yajurveda.txt",
+      "status": "success"
+    },
+    "The Hymns of the Atharvaveda": {
+      "url": "https://www.sacred-texts.com/hin/av/index.htm",
+      "category": "Vedas",
+      "file": "sacred_texts_hindu\\Vedas\\The Hymns of the Atharvaveda.txt",
+      "status": "success"
+    },
+    "The Atharva-Veda (SBE 42)": {
+      "url": "https://www.sacred-texts.com/hin/sbe42/index.htm",
+      "category": "Vedas",
+      "file": "sacred_texts_hindu\\Vedas\\The Atharva-Veda SBE 42.txt",
+      "status": "success"
+    },
+    "The Upanishads": {
+      "url": "https://www.sacred-texts.com/hin/upan/index.htm",
+      "category": "Upanishads",
+      "file": "sacred_texts_hindu\\Upanishads\\The Upanishads.txt",
+      "status": "success"
+    },
+    "The Upanishads Part I (SBE 1)": {
+      "url": "https://www.sacred-texts.com/hin/sbe01/index.htm",
+      "category": "Upanishads",
+      "file": "sacred_texts_hindu\\Upanishads\\The Upanishads Part I SBE 1.txt",
+      "status": "success"
+    },
+    "The Upanishads Part II (SBE 15)": {
+      "url": "https://www.sacred-texts.com/hin/sbe15/index.htm",
+      "category": "Upanishads",
+      "file": "sacred_texts_hindu\\Upanishads\\The Upanishads Part II SBE 15.txt",
+      "status": "success"
+    },
+    "Thirty Minor Upanishads": {
+      "url": "https://www.sacred-texts.com/hin/tmu/index.htm",
+      "category": "Upanishads",
+      "file": "sacred_texts_hindu\\Upanishads\\Thirty Minor Upanishads.txt",
+      "status": "success"
+    },
+    "From the Upanishads": {
+      "url": "https://www.sacred-texts.com/hin/ftu/index.htm",
+      "category": "Upanishads",
+      "file": "sacred_texts_hindu\\Upanishads\\From the Upanishads.txt",
+      "status": "success"
+    },
+    "The Vishnu Purana": {
+      "url": "https://www.sacred-texts.com/hin/vp/index.htm",
+      "category": "Puranas",
+      "file": "sacred_texts_hindu\\Puranas\\The Vishnu Purana.txt",
+      "status": "success"
+    },
+    "The Garuda Purana": {
+      "url": "https://www.sacred-texts.com/hin/gpu/index.htm",
+      "category": "Puranas",
+      "file": "sacred_texts_hindu\\Puranas\\The Garuda Purana.txt",
+      "status": "success"
+    },
+    "The S'rimad Devî Bhâgawatam": {
+      "url": "https://www.sacred-texts.com/hin/db/index.htm",
+      "category": "Puranas",
+      "file": "sacred_texts_hindu\\Puranas\\The Srimad Devî Bhâgawatam.txt",
+      "status": "success"
+    },
+    "The Devî Gita": {
+      "url": "https://www.sacred-texts.com/hin/dg/index.htm",
+      "category": "Puranas",
+      "file": "sacred_texts_hindu\\Puranas\\The Devî Gita.txt",
+      "status": "success"
+    },
+    "The Prem Sagur (Prem Sagar)": {
+      "url": "https://www.sacred-texts.com/hin/ps/index.htm",
+      "category": "Puranas",
+      "status": "failed - fetch error"
+    },
+    "Kundalini: The Mother of the Universe": {
+      "url": "https://www.sacred-texts.com/hin/kmu/index.htm",
+      "category": "Puranas",
+      "file": "sacred_texts_hindu\\Puranas\\Kundalini The Mother of the Universe.txt",
+      "status": "success"
+    },
+    "The Laws of Manu": {
+      "url": "https://www.sacred-texts.com/hin/manu.htm",
+      "category": "Primary Texts",
+      "file": "sacred_texts_hindu\\Primary Texts\\The Laws of Manu.txt",
+      "status": "success"
+    },
+    "The Sacred Laws of the Âryas Part I (SBE 2)": {
+      "url": "https://www.sacred-texts.com/hin/sbe02/index.htm",
+      "category": "Primary Texts",
+      "file": "sacred_texts_hindu\\Primary Texts\\The Sacred Laws of the Âryas Part I SBE 2.txt",
+      "status": "success"
+    },
+    "The Sacred Laws of the Âryas Part II (SBE 14)": {
+      "url": "https://www.sacred-texts.com/hin/sbe14/index.htm",
+      "category": "Primary Texts",
+      "file": "sacred_texts_hindu\\Primary Texts\\The Sacred Laws of the Âryas Part II SBE 14.txt",
+      "status": "success"
+    },
+    "The Institutes of Vishnu (SBE 7)": {
+      "url": "https://www.sacred-texts.com/hin/sbe07/index.htm",
+      "category": "Primary Texts",
+      "file": "sacred_texts_hindu\\Primary Texts\\The Institutes of Vishnu SBE 7.txt",
+      "status": "success"
+    },
+    "The Minor Law Books (SBE 33)": {
+      "url": "https://www.sacred-texts.com/hin/sbe33/index.htm",
+      "category": "Primary Texts",
+      "file": "sacred_texts_hindu\\Primary Texts\\The Minor Law Books SBE 33.txt",
+      "status": "success"
+    },
+    "Satapatha Brahmana Part I (SBE 12)": {
+      "url": "https://www.sacred-texts.com/hin/sbr/sbe12/index.htm",
+      "category": "Primary Texts",
+      "file": "sacred_texts_hindu\\Primary Texts\\Satapatha Brahmana Part I SBE 12.txt",
+      "status": "success"
+    },
+    "Satapatha Brahmana Part II (SBE 26)": {
+      "url": "https://www.sacred-texts.com/hin/sbr/sbe26/index.htm",
+      "category": "Primary Texts",
+      "file": "sacred_texts_hindu\\Primary Texts\\Satapatha Brahmana Part II SBE 26.txt",
+      "status": "success"
+    },
+    "Satapatha Brahmana Part III (SBE 41)": {
+      "url": "https://www.sacred-texts.com/hin/sbr/sbe41/index.htm",
+      "category": "Primary Texts",
+      "file": "sacred_texts_hindu\\Primary Texts\\Satapatha Brahmana Part III SBE 41.txt",
+      "status": "success"
+    },
+    "Satapatha Brahmana Part IV (SBE 43)": {
+      "url": "https://www.sacred-texts.com/hin/sbr/sbe43/index.htm",
+      "category": "Primary Texts",
+      "file": "sacred_texts_hindu\\Primary Texts\\Satapatha Brahmana Part IV SBE 43.txt",
+      "status": "success"
+    },
+    "Satapatha Brahmana Part V (SBE 44)": {
+      "url": "https://www.sacred-texts.com/hin/sbr/sbe44/index.htm",
+      "category": "Primary Texts",
+      "file": "sacred_texts_hindu\\Primary Texts\\Satapatha Brahmana Part V SBE 44.txt",
+      "status": "success"
+    },
+    "The Grihya Sutras Part 1 (SBE 29)": {
+      "url": "https://www.sacred-texts.com/hin/sbe29/index.htm",
+      "category": "Primary Texts",
+      "file": "sacred_texts_hindu\\Primary Texts\\The Grihya Sutras Part 1 SBE 29.txt",
+      "status": "success"
+    },
+    "The Grihya Sutras Part 2 (SBE 30)": {
+      "url": "https://www.sacred-texts.com/hin/sbe30/index.htm",
+      "category": "Primary Texts",
+      "file": "sacred_texts_hindu\\Primary Texts\\The Grihya Sutras Part 2 SBE 30.txt",
+      "status": "success"
+    },
+    "The Mahabharata": {
+      "url": "https://www.sacred-texts.com/hin/maha/index.htm",
+      "category": "Epics",
+      "file": "sacred_texts_hindu\\Epics\\The Mahabharata.txt",
+      "status": "success"
+    },
+    "The Mahabharata in Sanskrit": {
+      "url": "https://www.sacred-texts.com/hin/mbs/index.htm",
+      "category": "Epics",
+      "file": "sacred_texts_hindu\\Epics\\The Mahabharata in Sanskrit.txt",
+      "status": "success"
+    },
+    "Rámáyan Of Válmíki": {
+      "url": "https://www.sacred-texts.com/hin/rama/index.htm",
+      "category": "Epics",
+      "file": "sacred_texts_hindu\\Epics\\Rámáyan Of Válmíki.txt",
+      "status": "success"
+    },
+    "The Ramayana in Sanskrit": {
+      "url": "https://www.sacred-texts.com/hin/rys/index.htm",
+      "category": "Epics",
+      "file": "sacred_texts_hindu\\Epics\\The Ramayana in Sanskrit.txt",
+      "status": "success"
+    },
+    "The Ramayana and Mahabharata (Abridged)": {
+      "url": "https://www.sacred-texts.com/hin/dutt/index.htm",
+      "category": "Epics",
+      "file": "sacred_texts_hindu\\Epics\\The Ramayana and Mahabharata Abridged.txt",
+      "status": "success"
+    },
+    "Indian Idylls": {
+      "url": "https://www.sacred-texts.com/hin/ii.htm",
+      "category": "Epics",
+      "file": "sacred_texts_hindu\\Epics\\Indian Idylls.txt",
+      "status": "success"
+    },
+    "Love and Death": {
+      "url": "https://www.sacred-texts.com/hin/lad/index.htm",
+      "category": "Epics",
+      "file": "sacred_texts_hindu\\Epics\\Love and Death.txt",
+      "status": "success"
+    },
+    "The Bhagavadgîtâ (SBE 8)": {
+      "url": "https://www.sacred-texts.com/hin/sbe08/index.htm",
+      "category": "Bhagavad Gita",
+      "file": "sacred_texts_hindu\\Bhagavad Gita\\The Bhagavadgîtâ SBE 8.txt",
+      "status": "success"
+    },
+    "The Bhagavad Gita in Sanskrit": {
+      "url": "https://www.sacred-texts.com/hin/bgs/index.htm",
+      "category": "Bhagavad Gita",
+      "file": "sacred_texts_hindu\\Bhagavad Gita\\The Bhagavad Gita in Sanskrit.txt",
+      "status": "success"
+    },
+    "Srimad-Bhagavad-Gita": {
+      "url": "https://www.sacred-texts.com/hin/sbg/index.htm",
+      "category": "Bhagavad Gita",
+      "file": "sacred_texts_hindu\\Bhagavad Gita\\Srimad-Bhagavad-Gita.txt",
+      "status": "success"
+    },
+    "The Bhagavad Gita (International Gita Society)": {
+      "url": "https://www.sacred-texts.com/hin/gita/agsgita.htm",
+      "category": "Bhagavad Gita",
+      "file": "sacred_texts_hindu\\Bhagavad Gita\\The Bhagavad Gita International Gita Society.txt",
+      "status": "success"
+    },
+    "The Bhagavad Gita (Edwin Arnold)": {
+      "url": "https://www.sacred-texts.com/hin/gita/index.htm",
+      "category": "Bhagavad Gita",
+      "file": "sacred_texts_hindu\\Bhagavad Gita\\The Bhagavad Gita Edwin Arnold.txt",
+      "status": "success"
+    },
+    "The Vedântâ-Sûtras with Râmânuja commentary (SBE 48)": {
+      "url": "https://www.sacred-texts.com/hin/sbe48/index.htm",
+      "category": "Vedanta",
+      "file": "sacred_texts_hindu\\Vedanta\\The Vedântâ-Sûtras with Râmânuja commentary SBE 48.txt",
+      "status": "success"
+    },
+    "The Vedântâ-Sûtras Part I with Sankarâkârya commentary (SBE 34)": {
+      "url": "https://www.sacred-texts.com/hin/sbe34/index.htm",
+      "category": "Vedanta",
+      "file": "sacred_texts_hindu\\Vedanta\\The Vedântâ-Sûtras Part I with Sankarâkârya commentary SBE 34.txt",
+      "status": "success"
+    },
+    "The Vedântâ-Sûtras Part II with Sankarâkârya commentary (SBE 38)": {
+      "url": "https://www.sacred-texts.com/hin/sbe38/index.htm",
+      "category": "Vedanta",
+      "file": "sacred_texts_hindu\\Vedanta\\The Vedântâ-Sûtras Part II with Sankarâkârya commentary SBE 38.txt",
+      "status": "success"
+    },
+    "The Crest-Jewel of Wisdom": {
+      "url": "https://www.sacred-texts.com/hin/cjw/index.htm",
+      "category": "Vedanta",
+      "file": "sacred_texts_hindu\\Vedanta\\The Crest-Jewel of Wisdom.txt",
+      "status": "success"
+    },
+    "Brahma-Knowledge": {
+      "url": "https://www.sacred-texts.com/hin/bk/index.htm",
+      "category": "Vedanta",
+      "status": "failed - fetch error"
+    },
+    "Select Works of Sri Sankaracharya": {
+      "url": "https://www.sacred-texts.com/hin/wos/index.htm",
+      "category": "Vedanta",
+      "file": "sacred_texts_hindu\\Vedanta\\Select Works of Sri Sankaracharya.txt",
+      "status": "success"
+    },
+    "The Yoga Sutras of Patanjali (Johnston)": {
+      "url": "https://www.sacred-texts.com/hin/yogasutra.htm",
+      "category": "Later Texts",
+      "status": "failed - fetch error"
+    },
+    "The Yoga Sutras of Patanjali (Alternative)": {
+      "url": "https://www.sacred-texts.com/hin/ysp/index.htm",
+      "category": "Later Texts",
+      "file": "sacred_texts_hindu\\Later Texts\\The Yoga Sutras of Patanjali Alternative.txt",
+      "status": "success"
+    },
+    "The Hatha Yoga Pradipika": {
+      "url": "https://www.sacred-texts.com/hin/hyp/index.htm",
+      "category": "Later Texts",
+      "file": "sacred_texts_hindu\\Later Texts\\The Hatha Yoga Pradipika.txt",
+      "status": "success"
+    },
+    "Dakshinamurti Stotra": {
+      "url": "https://www.sacred-texts.com/hin/ds/index.htm",
+      "category": "Later Texts",
+      "status": "failed - fetch error"
+    },
+    "The Sánkhya Aphorisms of Kapila": {
+      "url": "https://www.sacred-texts.com/hin/sak/index.htm",
+      "category": "Later Texts",
+      "file": "sacred_texts_hindu\\Later Texts\\The Sánkhya Aphorisms of Kapila.txt",
+      "status": "success"
+    },
+    "Kalidasa: Translations of Shakuntala and Other Works": {
+      "url": "https://www.sacred-texts.com/hin/kali/index.htm",
+      "category": "Later Texts",
+      "status": "failed - fetch error"
+    },
+    "The Little Clay Cart": {
+      "url": "https://www.sacred-texts.com/hin/lcc/index.htm",
+      "category": "Later Texts",
+      "file": "sacred_texts_hindu\\Later Texts\\The Little Clay Cart.txt",
+      "status": "success"
+    },
+    "Verses of Vemana": {
+      "url": "https://www.sacred-texts.com/hin/vov/index.htm",
+      "category": "Later Texts",
+      "file": "sacred_texts_hindu\\Later Texts\\Verses of Vemana.txt",
+      "status": "success"
+    },
+    "Black Marigolds (Caurapañcāśikā)": {
+      "url": "https://www.sacred-texts.com/hin/bm/index.htm",
+      "category": "Later Texts",
+      "status": "failed - fetch error"
+    },
+    "Vikram and the Vampire": {
+      "url": "https://www.sacred-texts.com/hin/vv/index.htm",
+      "category": "Later Texts",
+      "status": "failed - fetch error"
+    },
+    "Hymns of the Tamil Saivite Saints": {
+      "url": "https://www.sacred-texts.com/hin/htss/index.htm",
+      "category": "Later Texts",
+      "file": "sacred_texts_hindu\\Later Texts\\Hymns of the Tamil Saivite Saints.txt",
+      "status": "success"
+    },
+    "Songs of Kabîr": {
+      "url": "https://www.sacred-texts.com/hin/sok/index.htm",
+      "category": "Later Texts",
+      "file": "sacred_texts_hindu\\Later Texts\\Songs of Kabîr.txt",
+      "status": "success"
+    },
+    "Yoga Vashisht or Heaven Found": {
+      "url": "https://www.sacred-texts.com/hin/yvhf/index.htm",
+      "category": "Later Texts",
+      "file": "sacred_texts_hindu\\Later Texts\\Yoga Vashisht or Heaven Found.txt",
+      "status": "success"
+    },
+    "Karma-Yoga": {
+      "url": "https://www.sacred-texts.com/hin/kyog/index.htm",
+      "category": "Modern Books",
+      "file": "sacred_texts_hindu\\Modern Books\\Karma-Yoga.txt",
+      "status": "success"
+    },
+    "Hindu Mysticism": {
+      "url": "https://www.sacred-texts.com/hin/hm/index.htm",
+      "category": "Modern Books",
+      "file": "sacred_texts_hindu\\Modern Books\\Hindu Mysticism.txt",
+      "status": "success"
+    },
+    "Writings of Sister Nivedita": {
+      "url": "https://www.sacred-texts.com/hin/niv/index.htm",
+      "category": "Modern Books",
+      "file": "sacred_texts_hindu\\Modern Books\\Writings of Sister Nivedita.txt",
+      "status": "success"
+    },
+    "Kali the Mother": {
+      "url": "https://www.sacred-texts.com/hin/ktm/index.htm",
+      "category": "Modern Books",
+      "file": "sacred_texts_hindu\\Modern Books\\Kali the Mother.txt",
+      "status": "success"
+    },
+    "The Web of Indian Life": {
+      "url": "https://www.sacred-texts.com/hin/wil/index.htm",
+      "category": "Modern Books",
+      "file": "sacred_texts_hindu\\Modern Books\\The Web of Indian Life.txt",
+      "status": "success"
+    },
+    "Studies from an Eastern Home": {
+      "url": "https://www.sacred-texts.com/hin/seh/index.htm",
+      "category": "Modern Books",
+      "file": "sacred_texts_hindu\\Modern Books\\Studies from an Eastern Home.txt",
+      "status": "success"
+    },
+    "Writings of Rabindranath Tagore": {
+      "url": "https://www.sacred-texts.com/hin/tagore/index.htm",
+      "category": "Modern Books",
+      "file": "sacred_texts_hindu\\Modern Books\\Writings of Rabindranath Tagore.txt",
+      "status": "success"
+    },
+    "Gitanjali": {
+      "url": "https://www.sacred-texts.com/hin/tagore/gitnjali.htm",
+      "category": "Modern Books",
+      "file": "sacred_texts_hindu\\Modern Books\\Gitanjali.txt",
+      "status": "success"
+    },
+    "Saddhana, The Realisation of Life": {
+      "url": "https://www.sacred-texts.com/hin/tagore/sadh/index.htm",
+      "category": "Modern Books",
+      "file": "sacred_texts_hindu\\Modern Books\\Saddhana The Realisation of Life.txt",
+      "status": "success"
+    },
+    "The Crescent Moon": {
+      "url": "https://www.sacred-texts.com/hin/tagore/cresmoon/index.htm",
+      "category": "Modern Books",
+      "file": "sacred_texts_hindu\\Modern Books\\The Crescent Moon.txt",
+      "status": "success"
+    },
+    "Fruit-Gathering": {
+      "url": "https://www.sacred-texts.com/hin/tagore/frutgath.htm",
+      "category": "Modern Books",
+      "file": "sacred_texts_hindu\\Modern Books\\Fruit-Gathering.txt",
+      "status": "success"
+    },
+    "Stray Birds": {
+      "url": "https://www.sacred-texts.com/hin/tagore/strybrds.htm",
+      "category": "Modern Books",
+      "file": "sacred_texts_hindu\\Modern Books\\Stray Birds.txt",
+      "status": "success"
+    },
+    "The Home and the World": {
+      "url": "https://www.sacred-texts.com/hin/tagore/homewrld/index.htm",
+      "category": "Modern Books",
+      "file": "sacred_texts_hindu\\Modern Books\\The Home and the World.txt",
+      "status": "success"
+    },
+    "Thought Relics": {
+      "url": "https://www.sacred-texts.com/hin/tagore/tr/index.htm",
+      "category": "Modern Books",
+      "file": "sacred_texts_hindu\\Modern Books\\Thought Relics.txt",
+      "status": "success"
+    },
+    "The Indian Stories of F.W. Bain": {
+      "url": "https://www.sacred-texts.com/hin/bain/index.htm",
+      "category": "Modern Books",
+      "file": "sacred_texts_hindu\\Modern Books\\The Indian Stories of FW Bain.txt",
+      "status": "success"
+    }
+  }
+}

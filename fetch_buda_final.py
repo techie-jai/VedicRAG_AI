@@ -1,17 +1,13 @@
 #!/usr/bin/env python3
 """
-BUDA API Integration Script for Vedic RAG AI
-Fetches relevant Sanskrit texts from Buddhist Digital Resource Center (BUDA)
-and categorizes them into dharmaganj structure.
+Final attempt: Use working query templates and direct resource access
 """
 
 import requests
 import json
 import time
 import os
-import re
-from typing import Dict, List, Optional, Tuple
-from urllib.parse import quote
+from typing import Dict, List, Optional
 
 class BudaAPIClient:
     """Client for BUDA LDS-PDI API"""
@@ -24,40 +20,48 @@ class BudaAPIClient:
             'Accept': 'application/json'
         })
     
-    def get_queries_list(self) -> List[Dict]:
-        """Get list of available query templates"""
+    def test_working_queries(self):
+        """Test which query templates actually work"""
         try:
             response = self.session.get(f"{self.base_url}/queries")
             response.raise_for_status()
-            return response.json()
+            queries = response.json()
+            
+            working_queries = []
+            for query in queries[:10]:  # Test first 10
+                query_id = query.get('id')
+                try:
+                    # Try simple parameters
+                    params = {'pageSize': 5}
+                    url = f"{self.base_url}/query/table/{query_id}"
+                    test_response = self.session.get(url, params=params, timeout=10)
+                    if test_response.status_code == 200:
+                        working_queries.append(query_id)
+                        print(f"✅ {query_id} works")
+                    else:
+                        print(f"❌ {query_id} failed: {test_response.status_code}")
+                except Exception as e:
+                    print(f"❌ {query_id} error: {str(e)[:50]}")
+            
+            return working_queries
         except Exception as e:
-            print(f"Error fetching queries: {e}")
+            print(f"Error testing queries: {e}")
             return []
     
-    def get_etext_contents(self, search_term: str, lang: str = "sa-x-iast", limit: int = 50) -> Optional[Dict]:
-        """
-        Search for e-text contents using Etexts_contents query template
-        
-        Args:
-            search_term: Term to search for
-            lang: Language code (sa-x-iast for Sanskrit in IAST transliteration)
-            limit: Maximum results per page
-        """
+    def get_works_by_type(self, work_type: str) -> Optional[Dict]:
+        """Get works by type using idsByType query"""
         try:
-            # URL encode the search term
-            encoded_term = quote(f'"{search_term}"')
             params = {
-                'L_NAME': encoded_term,
-                'lang': lang,
-                'pageSize': limit
+                'type': work_type,
+                'pageSize': 50
             }
             
-            url = f"{self.base_url}/query/table/Etexts_contents"
+            url = f"{self.base_url}/query/table/idsByType"
             response = self.session.get(url, params=params)
             response.raise_for_status()
             return response.json()
         except Exception as e:
-            print(f"Error searching for '{search_term}': {e}")
+            print(f"Error getting works of type '{work_type}': {e}")
             return None
     
     def get_resource_info(self, resource_id: str) -> Optional[Dict]:
@@ -70,16 +74,27 @@ class BudaAPIClient:
         except Exception as e:
             print(f"Error fetching resource {resource_id}: {e}")
             return None
+    
+    def get_all_persons(self) -> Optional[Dict]:
+        """Get all persons to find Sanskrit authors"""
+        try:
+            params = {'pageSize': 100}
+            url = f"{self.base_url}/query/table/Persons_all"
+            response = self.session.get(url, params=params)
+            response.raise_for_status()
+            return response.json()
+        except Exception as e:
+            print(f"Error getting persons: {e}")
+            return None
 
 class DharmaganjCategorizer:
     """Categorizes BUDA content into dharmaganj structure"""
     
-    # Keywords and patterns for each building/domain
     CATEGORIES = {
         "ratnodadhi": {
-            "shruti": ["veda", "rig", "sama", "yajur", "atharva", "samhita"],
-            "sutra": ["sutra", "prajnaparamita", "guhyasamaja", "mahayana", "bodhicitta"],
-            "upanishad": ["upanishad", "upanisad", "brahmana", "aranyaka"]
+            "shruti": ["veda", "rig", "sama", "yajur", "atharva", "samhita", "brahmana"],
+            "sutra": ["sutra", "prajnaparamita", "guhyasamaja", "mahayana", "bodhicitta", "dharma"],
+            "upanishad": ["upanishad", "upanisad", "brahmana", "aranyaka", "vedanta"]
         },
         "ratnasagara": {
             "cikitsavidya": ["ayurveda", "caraka", "susruta", "medicine", "cikitsa", "dhatu", "rasa"],
@@ -97,16 +112,15 @@ class DharmaganjCategorizer:
     }
     
     @staticmethod
-    def categorize_text(title: str, content: str) -> Tuple[str, str]:
-        """
-        Categorize a text based on title and content
-        
-        Returns:
-            Tuple of (building, domain)
-        """
+    def categorize_text(title: str, content: str = "") -> tuple[str, str]:
+        """Categorize a text based on title and content"""
+        if not title:
+            title = ""
+        if not content:
+            content = ""
+            
         title_lower = title.lower()
         content_lower = content.lower()
-        combined_text = f"{title_lower} {content_lower}"
         
         # Score each category
         scores = {}
@@ -119,7 +133,7 @@ class DharmaganjCategorizer:
                 domain_score = 0
                 for keyword in keywords:
                     if keyword in title_lower:
-                        domain_score += 3  # Title matches are worth more
+                        domain_score += 3
                     if keyword in content_lower:
                         domain_score += 1
                 
@@ -135,9 +149,8 @@ class DharmaganjCategorizer:
                 }
         
         if not scores:
-            return "ratnaranjaka", "vividha"  # Default fallback
+            return "ratnaranjaka", "vividha"
         
-        # Return building with highest score
         best_building = max(scores.keys(), key=lambda k: scores[k]['score'])
         return best_building, scores[best_building]['domain']
 
@@ -148,8 +161,6 @@ class BudaDataFetcher:
         self.client = BudaAPIClient()
         self.output_dir = output_dir
         self.catalog_file = os.path.join(output_dir, "bagdevibhandar", "master_catalog.json")
-        
-        # Ensure directories exist
         self._ensure_directories()
     
     def _ensure_directories(self):
@@ -172,16 +183,9 @@ class BudaDataFetcher:
         for dir_path in dirs:
             os.makedirs(dir_path, exist_ok=True)
     
-    def search_and_categorize(self, search_terms: List[str]) -> Dict:
-        """
-        Search BUDA for multiple terms and categorize results
+    def explore_buda_content(self) -> Dict:
+        """Explore BUDA content using working query templates"""
         
-        Args:
-            search_terms: List of Sanskrit terms to search for
-            
-        Returns:
-            Dictionary with categorized results
-        """
         all_results = {
             'ratnodadhi': {'shruti': [], 'sutra': [], 'upanishad': []},
             'ratnasagara': {'cikitsavidya': [], 'nyaya_pramana': [], 'vyakarana': [], 
@@ -189,42 +193,70 @@ class BudaDataFetcher:
             'ratnaranjaka': {'itihasa': [], 'purana': [], 'kavya': [], 'vividha': []}
         }
         
-        for term in search_terms:
-            print(f"🔍 Searching for: {term}")
-            results = self.client.get_etext_contents(term)
+        print("🔍 Testing which query templates work...")
+        working_queries = self.client.test_working_queries()
+        print(f"✅ Found {len(working_queries)} working queries: {working_queries}")
+        
+        # Try different approaches based on working queries
+        
+        # 1. Try to get works by different types
+        work_types = ["Work", "Instance", "Person"]
+        for work_type in work_types:
+            print(f"\n📊 Getting works of type: {work_type}")
+            results = self.client.get_works_by_type(work_type)
             
-            if not results or 'results' not in results:
-                print(f"❌ No results for '{term}'")
-                continue
+            if results and 'results' in results:
+                print(f"✅ Found {len(results['results'])} items of type {work_type}")
+                
+                # Process first few items to see what we get
+                for item in results['results'][:10]:  # Limit to first 10 for testing
+                    resource_id = item.get('resource', '')
+                    label = item.get('label', resource_id)
+                    
+                    # Get detailed info
+                    resource_info = self.client.get_resource_info(resource_id)
+                    if resource_info:
+                        title = resource_info.get('title', label)
+                        
+                        # Categorize
+                        building, domain = DharmaganjCategorizer.categorize_text(title)
+                        
+                        categorized_item = {
+                            'resource_id': resource_id,
+                            'title': title,
+                            'content': str(item),  # Store the basic item info
+                            'source': 'BUDA',
+                            'work_type': work_type
+                        }
+                        
+                        all_results[building][domain].append(categorized_item)
+                        print(f"📚 {title[:50]}... -> {building}/{domain}")
+                
+                time.sleep(1)  # Rate limiting
+        
+        # 2. Try to get persons (might give us author information)
+        print(f"\n👥 Getting persons...")
+        persons = self.client.get_all_persons()
+        if persons and 'results' in persons:
+            print(f"✅ Found {len(persons['results'])} persons")
             
-            print(f"📊 Found {len(results['results'])} results for '{term}'")
-            
-            for item in results['results']:
-                resource_id = item.get('resource', '')
-                content = item.get('content', '')
-                score = item.get('score', 0)
-                
-                # Get detailed resource info for better categorization
-                resource_info = self.client.get_resource_info(resource_id)
-                title = resource_info.get('title', resource_id) if resource_info else resource_id
-                
-                # Categorize the text
-                building, domain = DharmaganjCategorizer.categorize_text(title, content)
-                
-                categorized_item = {
-                    'resource_id': resource_id,
-                    'title': title,
-                    'content': content,
-                    'score': score,
-                    'search_term': term,
-                    'source': 'BUDA'
-                }
-                
-                all_results[building][domain].append(categorized_item)
-                print(f"📚 Categorized: {title[:50]}... -> {building}/{domain}")
-            
-            # Rate limiting
-            time.sleep(1)
+            # Look for Sanskrit-sounding names
+            for person in persons['results'][:20]:
+                name = person.get('label', '')
+                if any(char in name.lower() for char in ['a', 'i', 'u', 'e', 'o']):  # Basic Sanskrit vowel check
+                    resource_id = person.get('resource', '')
+                    building, domain = "ratnaranjaka", "vividha"  # Default for persons
+                    
+                    categorized_item = {
+                        'resource_id': resource_id,
+                        'title': f"Person: {name}",
+                        'content': str(person),
+                        'source': 'BUDA',
+                        'work_type': 'Person'
+                    }
+                    
+                    all_results[building][domain].append(categorized_item)
+                    print(f"👤 {name} -> {building}/{domain}")
         
         return all_results
     
@@ -263,17 +295,15 @@ class BudaDataFetcher:
         self._update_catalog(metadata_updates)
     
     def _update_catalog(self, new_entries: List[Dict]):
-        """Update the master catalog with new entries"""
+        """Update master catalog with new entries"""
         try:
             with open(self.catalog_file, 'r', encoding='utf-8') as f:
                 catalog = json.load(f)
         except (FileNotFoundError, json.JSONDecodeError):
             catalog = {"version": "1.0", "buildings": ["bagdevibhandar", "ratnodadhi", "ratnasagara", "ratnaranjaka"], "catalog": []}
         
-        # Add new entries
         catalog['catalog'].extend(new_entries)
         
-        # Save updated catalog
         with open(self.catalog_file, 'w', encoding='utf-8') as f:
             json.dump(catalog, f, indent=2, ensure_ascii=False)
         
@@ -281,36 +311,13 @@ class BudaDataFetcher:
 
 def main():
     """Main execution function"""
-    print("🚀 BUDA Data Fetcher for Vedic RAG AI")
+    print("🚀 BUDA Content Explorer for Vedic RAG AI")
     print("=" * 50)
     
-    # Initialize fetcher
     fetcher = BudaDataFetcher()
     
-    # Define search terms based on existing dharmaganj content
-    # These terms are selected to complement existing Vedic/Buddhist collections
-    search_terms = [
-        # Core philosophical concepts
-        "prajna", "upaya", "sunyata", "tathata", "bodhi",
-        
-        # Text types we want more of
-        "sutra", "shastra", "tantra", "commentary", "bhashya",
-        
-        # Specific traditions/schools
-        "madhyamaka", "yogacara", "vedanta", "sautrantika",
-        
-        # Technical terms
-        "pramana", "nyaya", "dharma", "karma", "samsara",
-        
-        # Practices and concepts
-        "meditation", "yoga", "mantra", "mandala", "bodhisattva"
-    ]
-    
-    print(f"📝 Search terms: {', '.join(search_terms)}")
-    print()
-    
-    # Search and categorize
-    results = fetcher.search_and_categorize(search_terms)
+    print("🔍 Exploring BUDA content structure...")
+    results = fetcher.explore_buda_content()
     
     # Display summary
     print("\n📊 Results Summary:")
@@ -321,7 +328,6 @@ def main():
             if items:
                 print(f"   📁 {domain}: {len(items)} items")
     
-    # Ask for confirmation before saving
     print(f"\n💾 Ready to save results to {fetcher.output_dir}")
     response = input("Save results? (y/N): ").strip().lower()
     

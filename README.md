@@ -70,6 +70,126 @@ We have successfully integrated the ** (Sanskrit Relational Interface)** corpus 
 
 All new data is stored in the `dharmaganj/` directory structure with full metadata in `bagdevibhandar/master_catalog.json`.
 
+### V2.3 Update: Sacred Texts Hindu Collection (March 2026)
+Successfully integrated **70 Hindu texts** from the Internet Sacred Text Archive (sacred-texts.com). This comprehensive collection adds primary Hindu scriptures, philosophical treatises, and classical literature to our digital library.
+
+**Collection Details:**
+- **Source**: https://www.sacred-texts.com/hin/index.htm
+- **Total Texts Fetched**: 70 (88.6% success rate)
+- **Storage**: `sacred_texts_hindu/` directory organized by category
+- **Metadata**: `sacred_texts_hindu/metadata.json` tracks all fetch operations
+
+All texts are extracted to plain text format and organized by category for easy integration into the RAG system.
+
+**Sacred Texts Hindu Collection - Complete Inventory (70 Texts):**
+
+#### The Vedas (10 texts)
+1. Rig Veda (Ralph Griffith translation)
+2. Rig-Veda (Sanskrit - Devanagari & Romanized)
+3. Vedic Hymns, Part I (SBE 32)
+4. Vedic Hymns, Part II (SBE 46)
+5. A Vedic Reader for Students (A.A. Macdonell)
+6. The Sama-Veda (Ralph Griffith)
+7. The Yajur Veda (Taittiriya Sanhita - Arthur Berriedale Keith)
+8. The Texts of the White Yajurveda (Ralph T.H. Griffith)
+9. The Hymns of the Atharvaveda
+10. The Atharva-Veda (SBE 42)
+
+#### Upanishads (5 texts)
+1. The Upanishads (Complete - Max Müller)
+2. The Upanishads, Part I (SBE 1)
+3. The Upanishads, Part II (SBE 15)
+4. Thirty Minor Upanishads (K. Narayanasvami Aiyar)
+5. From the Upanishads (Charles Johnston)
+
+#### Puranas (6 texts)
+1. The Vishnu Purana (H.H. Wilson)
+2. The Garuda Purana (Ernest Wood & S.V. Subrahmanyam)
+3. The S'rimad Devî Bhâgawatam (Swami Vijnanananda)
+4. The Devî Gita (Swami Vijnanananda)
+5. The Prem Sagur/Prem Sagar (Lallu Lal - W. Hollings)
+6. Kundalini: The Mother of the Universe (Rishi Singh Gherwal)
+
+#### Other Primary Texts (9 texts)
+1. The Laws of Manu (George Bühler)
+2. The Sacred Laws of the Âryas, Part I (SBE 2)
+3. The Sacred Laws of the Âryas, Part II (SBE 14)
+4. The Institutes of Vishnu (SBE 7)
+5. The Minor Law Books (SBE 33)
+6. Satapatha Brahmana, Part I (SBE 12)
+7. Satapatha Brahmana, Part II (SBE 26)
+8. Satapatha Brahmana, Part III (SBE 41)
+9. Satapatha Brahmana, Part IV (SBE 43)
+10. Satapatha Brahmana, Part V (SBE 44)
+11. The Grihya Sutras, Part 1 (SBE 29)
+12. The Grihya Sutras, Part 2 (SBE 30)
+
+#### The Epics (7 texts)
+1. The Mahabharata (Complete translation)
+2. The Mahabharata in Sanskrit (Devanagari & Romanized)
+3. Rámáyan Of Válmíki (Ralph T. H. Griffith)
+4. The Ramayana in Sanskrit (Devanagari & Romanized)
+5. The Ramayana and Mahabharata (Abridged - R. Dutt)
+6. Indian Idylls (Sir Edwin Arnold)
+7. Love and Death (Sri Arobindo)
+
+#### Bhagavad Gita (5 texts)
+1. The Bhagavadgîtâ (SBE 8 - Kâshinâth Trimbak Telang)
+2. The Bhagavad Gita in Sanskrit (Romanized)
+3. Srimad-Bhagavad-Gita (Swami Swarupananda)
+4. The Bhagavad Gita (International Gita Society)
+5. The Bhagavad Gita (Sir Edwin Arnold - Poetic)
+
+#### Vedanta (6 texts)
+1. The Vedântâ-Sûtras with Râmânuja commentary (SBE 48)
+2. The Vedântâ-Sûtras Part I with Sankarâkârya commentary (SBE 34)
+3. The Vedântâ-Sûtras Part II with Sankarâkârya commentary (SBE 38)
+4. The Crest-Jewel of Wisdom (Śankarâchârya - Charles Johnston)
+5. Brahma-Knowledge (L.D. Barnett)
+6. Select Works of Sri Sankaracharya (S. Venkataramanan)
+
+#### Later Texts (12 texts)
+1. The Yoga Sutras of Patanjali (Alternative translation)
+2. The Hatha Yoga Pradipika (Pancham Sinh)
+3. The Sánkhya Aphorisms of Kapila (James R. Ballantyne)
+4. The Little Clay Cart (Shudraka - Arthur W. Ryder)
+5. Verses of Vemana (Vemana - C.P. Brown)
+6. Hymns of the Tamil Saivite Saints (F. Kingsbury & G.P. Phillips)
+7. Songs of Kabîr (Rabindranath Tagore)
+8. Yoga Vashisht or Heaven Found (Rishi Singh Gherwal)
+
+#### Modern Books & Classical Literature (9 texts)
+1. Karma-Yoga (Swami Vivekananda)
+2. Hindu Mysticism
+3. Writings of Sister Nivedita (Margaret E. Noble)
+4. Kali the Mother
+5. The Web of Indian Life
+6. Studies from an Eastern Home
+7. Writings of Rabindranath Tagore (Complete)
+8. Gitanjali (Rabindranath Tagore)
+9. Saddhana, The Realisation of Life (Rabindranath Tagore)
+10. The Crescent Moon (Rabindranath Tagore)
+11. Fruit-Gathering (Rabindranath Tagore)
+12. Stray Birds (Rabindranath Tagore)
+13. The Home and the World (Rabindranath Tagore)
+14. Thought Relics (Rabindranath Tagore)
+15. The Indian Stories of F.W. Bain
+
+**Data Organization:**
+```
+sacred_texts_hindu/
+├── Vedas/                          # 10 Vedic texts
+├── Upanishads/                     # 5 Upanishadic texts
+├── Puranas/                        # 6 Puranic texts
+├── Primary Texts/                  # 9 Dharmaśāstra & Brahmana texts
+├── Epics/                          # 7 Epic texts (Mahabharata, Ramayana)
+├── Bhagavad Gita/                  # 5 Gita translations
+├── Vedanta/                        # 6 Vedantic philosophical texts
+├── Later Texts/                    # 12 Classical & yogic texts
+├── Modern Books/                   # 9 Modern & contemporary texts
+└── metadata.json                   # Complete fetch status & URLs
+```
+
 ## 🗄️ Reconstructing the Nalanda Library: Our Digital Corpus
 
 This system begins with the magnificent **Itihāsa dataset**—a fragment of the vast knowledge that once filled Nalanda's halls. This monumental corpus is detailed in the 2021 research paper: "Itihāsa: A large-scale corpus for Sanskrit to English translation".
