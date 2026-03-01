@@ -83,11 +83,22 @@ The repository is currently seeded with foundational and narrative data:
 | | `kavya` | 7 | .xml | Ingested |
 | **Bagdevibhandar** | `metadata` | 1 | .json | Active |
 
-**Total Ingested Manuscripts/Parts**: 72
+**Total Ingested Manuscripts/Parts**: 152
+
+**New Sanskrit Data Added (V2.3)**:
+
+- **Ratnodadhi** (Core/Sacred): srimadbhagavadgita, srimadbhagavatam, vishnupuranam (3 JSON files)
+- **Ratnasagara** (Technical/Scientific): ashtadhyayi, natyashastram, kosha, dhatu, chhanda, chandraloka, shringaraprakash (7 JSON files)
+- **Ratnaranjaka** (Narrative/Cultural): mahabharatam (8 JSON parts), ramayanam (8 JSON parts), meghadutam, raghuvansham, kumarasambhavam, kiratarjuniyam, shakuntalam, hamsadutam, rtusamharam, naishadhiyacaritam, pancatantram, kathasaritsagara, kadambarisangraha, nilakanthavijayachampu, shishupalavadham (30+ files), mahasubhashitasangraha, shatakatrayam, anyapadeshashatakam, amarushatakam, bhattikavyam (~40 JSON and text files)
 
 **Note on Ramayana & Bhagavad Gita**: The `itihasa` domain in Ratnaranjaka contains the complete **Ramayana** (17,179 verses) and **Mahabharata** (68,710 verses) across 5 managed text files (`itihasa_corpus_v2_part_1.txt` to `part_5.txt`). These files use an enhanced schema including source, category, and verse metadata. Sample verses from the **Bhagavad Gita** are also integrated into this corpus.
 
 ## 7. Change Log
+### V2.3 (March 2026)
+- **SanskritSahitya Integration**: Added ~80 high-quality JSON and text manuscripts from the SanskritSahitya.com repository, including epics (Mahabharata, Ramayana), classical poetry (Meghaduta, Raghuvansham), puranas, and technical texts (Ashtadhyayi, Natyashastram).
+- **Architectural Categorization**: Distributed new data across the three Nalanda buildings for optimal semantic routing.
+- **Master Catalog Update**: Updated `bagdevibhandar/master_catalog.json` with metadata for all new texts.
+
 ### V2.2 (March 2026)
 - **SARIT Integration**: Added 62 high-quality XML manuscripts from the SARIT corpus.
 - **Vedic Dataset Refinement**: Replaced older `itihasa_part_*.txt` with the more comprehensive `itihasa_corpus_v2_part_*.txt` containing 85,895 verses of Ramayana, Mahabharata, and Gita.

@@ -74,15 +74,15 @@ All new data is stored in the `dharmaganj/` directory structure with full metada
 
 This system begins with the magnificent **Itihāsa dataset**—a fragment of the vast knowledge that once filled Nalanda's halls. This monumental corpus is detailed in the 2021 research paper: "Itihāsa: A large-scale corpus for Sanskrit to English translation".
 
-### Current Digital Collection (Dashboard V2.2):
+### Current Digital Collection (Dashboard V2.3):
 
 | Building | Subject/Domain | File Count | Format | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **Ratnodadhi** | `shruti`, `sutra`, `upanishad` | 12 | .txt, .xml | **Ingested** |
-| **Ratnasagara** | `cikitsavidya`, `nyaya`, `vyakarana`, `arthashastra` | 45 | .xml | **Ingested** |
-| **Ratnaranjaka** | `itihasa` (Ramayana/Gita/Mahabharata), `purana`, `kavya` | 14 | .txt, .xml | **Ingested** |
+| **Ratnodadhi** | `shruti`, `sutra`, `upanishad`, `purana` | 15 | .txt, .xml, .json | **Ingested** |
+| **Ratnasagara** | `cikitsavidya`, `nyaya`, `vyakarana`, `arthashastra`, `natyashastra`, `kosha` | 52 | .xml, .json | **Ingested** |
+| **Ratnaranjaka** | `itihasa` (Ramayana/Gita/Mahabharata), `purana`, `kavya` | 54 | .txt, .xml, .json | **Ingested** |
 | **Bagdevibhandar** | `metadata` | 1 | .json | **Active** |
-| **Total Items** | | **72** | | **Deduplicated** |
+| **Total Items** | | **122** | | **Deduplicated** |
 
 **Primary Dataset Highlights:**
 - **� The Ramayana**: 17,179 verses (within `itihasa_corpus_v2_part_1.txt`)
