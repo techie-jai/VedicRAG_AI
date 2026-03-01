@@ -194,15 +194,15 @@ sacred_texts_hindu/
 
 This system begins with the magnificent **Itihāsa dataset**—a fragment of the vast knowledge that once filled Nalanda's halls. This monumental corpus is detailed in the 2021 research paper: "Itihāsa: A large-scale corpus for Sanskrit to English translation".
 
-### Current Digital Collection (Dashboard V2.3):
+### Current Digital Collection (Dashboard V2.4 - Updated March 2026):
 
 | Building | Subject/Domain | File Count | Format | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **Ratnodadhi** | `shruti`, `sutra`, `upanishad`, `purana` | 15 | .txt, .xml, .json | **Ingested** |
-| **Ratnasagara** | `cikitsavidya`, `nyaya`, `vyakarana`, `arthashastra`, `natyashastra`, `kosha` | 52 | .xml, .json | **Ingested** |
-| **Ratnaranjaka** | `itihasa` (Ramayana/Gita/Mahabharata), `purana`, `kavya` | 54 | .txt, .xml, .json | **Ingested** |
-| **Bagdevibhandar** | `metadata` | 1 | .json | **Active** |
-| **Total Items** | | **122** | | **Deduplicated** |
+| **Ratnodadhi** | `shruti` (8), `sutra` (12), `upanishad` (5), `purana` (5), `srimadbhagavadgita` (5) | 35 | .txt, .xml, .json | **Ingested** |
+| **Ratnasagara** | `cikitsavidya`, `nyaya`, `vyakarana`, `arthashastra`, `natyashastra`, `kosha`, `vedanta` (5), `yoga` (8) | 70 | .txt, .xml, .json | **Ingested** |
+| **Ratnaranjaka** | `itihasa` (7+6), `purana`, `kavya`, `vividha` (15) | 76 | .txt, .xml, .json | **Ingested** |
+| **Bagdevibhandar** | `metadata`, `migration_log` | 2 | .json | **Active** |
+| **Total Items** | | **183** | | **Deduplicated** |
 
 **Primary Dataset Highlights:**
 - **� The Ramayana**: 17,179 verses (within `itihasa_corpus_v2_part_1.txt`)
@@ -210,54 +210,118 @@ This system begins with the magnificent **Itihāsa dataset**—a fragment of the
 - **🕉️ Bhagavad Gita**: Sample verses integrated for philosophical grounding.
 - **� SARIT Corpus**: 62 high-quality XML manuscripts on Medicine, Logic, and Grammar.
 
-## 📚 Library Inventory
+## 📚 Library Inventory - Complete Collection with Descriptions
 
-### Ratnodadhi (Core/Sacred)
-- Bhagavad Gita
-- Bhagavatam
-- Vishnu Puranam
-- Mahayana Sutras
-- Shruti (Vedas)
-- Sutras
-- Upanishads
+### Ratnodadhi (Core/Sacred Texts - Foundation of Hindu Philosophy)
 
-### Ratnasagara (Technical/Scientific)
-- Arthashastra
-- Ashtadhyayi
-- Chandraloka
-- Chhanda
-- Cikitsavidya (Ayurveda)
-- Dhatu Patha
-- Kosha
-- Natyashastram
-- Nyaya Pramana
-- Shringaraprakash
-- Vyakarana
+**Shruti (Vedas) - 8 texts**
+- **Rig Veda** - The oldest and most important Veda; collection of 1,028 hymns praising Vedic deities and describing cosmology, rituals, and philosophical concepts
+- **Sama Veda** - The "Veda of Melodies"; hymns from Rig Veda arranged for liturgical chanting during Soma sacrifices
+- **Yajur Veda** - The "Veda of Sacrifices"; detailed instructions for performing Vedic rituals and sacrificial ceremonies
+- **Atharva Veda** - The "Veda of Incantations"; contains spells, charms, medical knowledge, and metaphysical teachings
 
-### Ratnaranjaka (Narrative/Cultural)
-- Amarushataka
-- Anyapadesh Shataka
-- Bhatti Kavya
-- Hamsaduta
-- Itihasa (Epics)
-- Kadambari Sangraha
-- Kathasaritsagara
-- Kavya
-- Kiratarjuniya
-- Kumarasambhava
-- Mahabharata
-- Mahasubhashita Sangraha
-- Meghaduta
-- Naishadhiya Charita
-- Nilakantha Vijayachampu
-- Pancatantra
-- Purana
-- Raghuvansha
-- Ramayana
-- Rtusamhara
-- Shakuntala
-- Shataka Traya
-- Shishupala Vadha
+**Upanishads - 5 texts**
+- **The Upanishads (Complete)** - Philosophical treatises exploring the nature of Brahman (ultimate reality), Atman (self), and the relationship between the two; foundation of Vedantic philosophy
+- **Thirty Minor Upanishads** - Shorter Upanishadic texts focusing on Yogic practices, meditation, and spiritual realization
+- **From the Upanishads** - Selected passages from major Upanishads (Katha, Prasna, Chandogya) with commentary
+
+**Bhagavad Gita - 5 texts**
+- **The Bhagavadgîtâ (SBE 8)** - Sacred dialogue between Lord Krishna and warrior Arjuna; teaches Dharma (duty), Bhakti (devotion), and paths to liberation
+- **Srimad-Bhagavad-Gita** - Modern translation with Swami Swarupananda's commentary explaining spiritual concepts
+- **The Bhagavad Gita (Poetic - Edwin Arnold)** - Classic poetic rendering making the philosophical teachings more accessible
+
+**Puranas - 5 texts**
+- **The Vishnu Purana** - Mythology and cosmology centered on Vishnu; includes Krishna legends and descriptions of Hindu cosmology
+- **The Garuda Purana** - Teachings on dharma, afterlife, funeral rites, and spiritual practices
+- **The S'rimad Devî Bhâgawatam** - Goddess-centered mythology; celebrates the divine feminine principle (Shakti)
+- **The Devî Gita** - Philosophical teachings of the Goddess; parallel to Bhagavad Gita but from feminine perspective
+- **Kundalini: The Mother of the Universe** - Explores Kundalini Shakti and the Thousand Names of the Goddess (Lalita Sahasranama)
+
+**Sutras & Dharmaśāstra - 12 texts**
+- **The Laws of Manu (Manusmriti)** - Ancient legal and ethical code; foundational text for Hindu law and social organization
+- **The Sacred Laws of the Âryas** - Dharmaśāstra texts by sages Âpastamba, Gautama, Vasishtha, and Baudhâyana; rules for conduct and ritual
+- **The Institutes of Vishnu** - Legal and ethical teachings; includes yogic practices and hymns to the Goddess
+- **Satapatha Brahmana (5 parts)** - Detailed explanations of Vedic rituals and their philosophical significance
+- **The Grihya Sutras (2 parts)** - Domestic rituals and household ceremonies for different life stages
+
+### Ratnasagara (Technical/Scientific Knowledge)
+
+**Vedanta Philosophy - 5 texts**
+- **The Vedântâ-Sûtras with Commentaries** - Systematic philosophical treatises exploring non-dualism (Advaita) and qualified non-dualism (Vishishtadvaita)
+- **The Crest-Jewel of Wisdom** - Śankarâchârya's masterwork on Advaita Vedanta; explains the nature of Brahman and liberation
+- **Select Works of Sri Sankaracharya** - Collection of philosophical essays and teachings on non-dual reality
+- **Brahma-Knowledge** - Exposition of Vedantic philosophy and the path to self-realization
+
+**Yoga & Spiritual Practices - 8 texts**
+- **The Yoga Sutras of Patanjali** - Foundational text on Raja Yoga; systematic approach to meditation and mental discipline
+- **The Hatha Yoga Pradipika** - Comprehensive guide to physical yoga practices, pranayama (breathing), and chakra system
+- **The Sánkhya Aphorisms of Kapila** - Dualistic philosophy explaining the relationship between consciousness (Purusha) and matter (Prakriti)
+- **Yoga Vashisht** - Philosophical teachings on liberation through knowledge and meditation
+- **Hymns of the Tamil Saivite Saints** - Devotional poetry celebrating Shiva; represents South Indian bhakti tradition
+- **Songs of Kabîr** - Mystical poetry bridging Hindu and Islamic traditions; emphasizes direct experience of the divine
+- **The Hatha Yoga Pradipika** - Detailed instructions on physical postures, breathing techniques, and energy channels
+
+**Existing Collections in Ratnasagara**
+- **Cikitsavidya (Ayurveda)** - 15 texts on traditional Indian medicine, healing practices, and herbal remedies
+- **Nyaya Pramana** - 28 texts on logic, epistemology, and methods of valid knowledge
+- **Vyakarana** - 2 texts on Sanskrit grammar (Panini's Ashtadhyayi tradition)
+- **Arthashastra** - Political science and statecraft by Kautilya
+- **Kosha** - 7 texts on Sanskrit lexicography and word meanings
+- **Natyashastram** - Treatise on drama, dance, and performing arts
+- **Shringaraprakash** - Aesthetic theory and poetics
+
+### Ratnaranjaka (Narrative/Cultural Heritage)
+
+**The Great Epics - 7 texts**
+- **The Mahabharata** - World's longest epic poem; tells the story of the Kurukshetra war and includes the Bhagavad Gita; explores dharma, duty, and human nature
+- **The Mahabharata in Sanskrit** - Original Sanskrit text with Devanagari and romanized versions for scholars
+- **Rámáyan Of Válmíki** - Epic tale of Prince Rama's exile and quest to rescue his wife Sita; teaches ideals of dharma, loyalty, and righteousness
+- **The Ramayana in Sanskrit** - Original Sanskrit text preserving the classical language and poetic structure
+- **The Ramayana and Mahabharata (Abridged)** - Condensed versions making these vast epics more accessible
+- **Indian Idylls** - Poetic renderings of Mahabharata stories by Sir Edwin Arnold
+- **Love and Death** - Story of Ruru and Priyumvada from the Mahabharata; explores themes of love and sacrifice
+
+**Classical Literature & Poetry - 15 texts**
+- **The Little Clay Cart** - Earliest surviving Indian drama; romantic comedy exploring love, social classes, and virtue
+- **Verses of Vemana** - 17th-century Telugu devotional poetry emphasizing spiritual wisdom over ritual
+- **The Indian Stories of F.W. Bain** - Modern retellings of classical Indian tales and legends
+- **Writings of Rabindranath Tagore** - Nobel laureate's philosophical essays, poetry, and spiritual teachings
+- **Gitanjali** - Tagore's collection of devotional poems; celebrates the divine in everyday life
+- **Saddhana, The Realisation of Life** - Tagore's essays on spiritual realization and human development
+- **The Crescent Moon** - Tagore's poetry collection for children exploring wonder and nature
+- **Fruit-Gathering** - Lyrical poems on love, nature, and spiritual truth
+- **Stray Birds** - Aphoristic poetry expressing profound philosophical insights in simple language
+- **The Home and the World** - Tagore's novel exploring nationalism, tradition, and modernity
+- **Thought Relics** - Collection of Tagore's philosophical reflections and meditations
+- **Karma-Yoga** - Swami Vivekananda's teachings on selfless action and spiritual work
+- **Hindu Mysticism** - Exploration of mystical traditions within Hinduism
+- **Writings of Sister Nivedita** - Essays on Hindu culture, women's empowerment, and spiritual practice
+- **Kali the Mother** - Philosophical exploration of the Divine Mother principle
+- **The Web of Indian Life** - Analysis of Indian society, culture, and spiritual traditions
+- **Studies from an Eastern Home** - Essays on Indian philosophy and way of life
+
+**Existing Collections in Ratnaranjaka**
+- **Itihasa (Epics)** - 6 texts on the great epics and their philosophical teachings
+- **Purana** - 2 texts on mythological narratives and cosmology
+- **Kavya** - 7 texts on classical Sanskrit poetry and drama
+- **Amarushataka** - 100 verses on love and romance
+- **Anyapadesh Shataka** - Didactic poetry on ethical conduct
+- **Bhatti Kavya** - Epic poem illustrating Sanskrit grammar
+- **Hamsaduta** - Poetic work featuring a swan as messenger
+- **Kadambari Sangraha** - Collection of romantic narratives
+- **Kathasaritsagara** - Ocean of Stories; vast collection of tales
+- **Kiratarjuniya** - Epic poem on Arjuna's encounter with Shiva
+- **Kumarasambhava** - Birth of Kumara (Skanda); divine love story
+- **Mahasubhashita Sangraha** - Collection of wise sayings and aphorisms
+- **Meghaduta** - Cloud Messenger; lyrical poem of separation and longing
+- **Naishadhiya Charita** - Epic poem on Nala and Damayanti
+- **Nilakantha Vijayachampu** - Poem celebrating Nilakantha (Shiva)
+- **Pancatantra** - Fables and moral tales using animal characters
+- **Raghuvansha** - Dynasty of Raghu; genealogy of Rama's ancestors
+- **Rtusamhara** - Poem describing the six seasons
+- **Shakuntala** - Famous drama by Kalidasa; love story with spiritual themes
+- **Shataka Traya** - Three centuries of aphoristic verses on ethics and wisdom
+- **Shishupala Vadha** - Epic poem on the slaying of Shishupala; 40 texts on various aspects
 
 ### Data Structure & Organization
 
