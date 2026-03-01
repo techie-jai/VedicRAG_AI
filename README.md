@@ -90,6 +90,55 @@ This system begins with the magnificent **Itihāsa dataset**—a fragment of the
 - **🕉️ Bhagavad Gita**: Sample verses integrated for philosophical grounding.
 - **� SARIT Corpus**: 62 high-quality XML manuscripts on Medicine, Logic, and Grammar.
 
+## 📚 Library Inventory
+
+### Ratnodadhi (Core/Sacred)
+- Bhagavad Gita
+- Bhagavatam
+- Vishnu Puranam
+- Mahayana Sutras
+- Shruti (Vedas)
+- Sutras
+- Upanishads
+
+### Ratnasagara (Technical/Scientific)
+- Arthashastra
+- Ashtadhyayi
+- Chandraloka
+- Chhanda
+- Cikitsavidya (Ayurveda)
+- Dhatu Patha
+- Kosha
+- Natyashastram
+- Nyaya Pramana
+- Shringaraprakash
+- Vyakarana
+
+### Ratnaranjaka (Narrative/Cultural)
+- Amarushataka
+- Anyapadesh Shataka
+- Bhatti Kavya
+- Hamsaduta
+- Itihasa (Epics)
+- Kadambari Sangraha
+- Kathasaritsagara
+- Kavya
+- Kiratarjuniya
+- Kumarasambhava
+- Mahabharata
+- Mahasubhashita Sangraha
+- Meghaduta
+- Naishadhiya Charita
+- Nilakantha Vijayachampu
+- Pancatantra
+- Purana
+- Raghuvansha
+- Ramayana
+- Rtusamhara
+- Shakuntala
+- Shataka Traya
+- Shishupala Vadha
+
 ### Data Structure & Organization
 
 ```
