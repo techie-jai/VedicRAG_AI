@@ -34,6 +34,7 @@ async def lifespan(app: FastAPI):
     llm = OllamaLLM(
         model="gpt-oss:20b", # FIXED: Corrected spelling
         base_url=OLLAMA_BASE_URL,
+        request_timeout=300.0,
         temperature=0.1, # LOWERED: 0.1 prevents the AI from "hallucinating" fake scripture
         context_window=4096,
         system_prompt=(
