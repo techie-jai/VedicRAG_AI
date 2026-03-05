@@ -361,6 +361,97 @@ Our AI system mimics the **scholarly methodology** of ancient Nalanda professors
 3. **🎓 Contextual Teaching**: The AI presents authentic passages with practical explanations, just as Nalanda masters taught their students
 4. **🔬 Practical Application**: Ancient principles are connected to modern challenges and solutions
 
+### RAG (Retrieval-Augmented Generation) Architecture
+
+**What is RAG?**
+
+RAG is a hybrid AI approach that combines:
+- **Retrieval**: Finding relevant documents/passages from a knowledge base
+- **Augmentation**: Using those passages as context for the AI
+- **Generation**: Creating informed responses based on retrieved context
+
+**Why RAG for Ancient Wisdom?**
+
+Traditional LLMs can "hallucinate" or provide inaccurate information. RAG ensures:
+- ✅ **Authenticity**: Every answer backed by actual ancient texts
+- ✅ **Traceability**: Users can see which verses informed the response
+- ✅ **Accuracy**: Reduces AI errors through grounding in real sources
+- ✅ **Cultural Integrity**: Preserves original meanings and context
+
+### System Architecture Flow
+
+```
+User Query
+    ↓
+┌─────────────────────────────────────┐
+│  1. RETRIEVAL PHASE                 │
+│  ─────────────────────────────────  │
+│  • Search Vedic corpus              │
+│  • Match keywords & semantics       │
+│  • Rank by relevance               │
+│  • Return top N passages           │
+└─────────────────────────────────────┘
+    ↓
+┌─────────────────────────────────────┐
+│  2. AUGMENTATION PHASE              │
+│  ─────────────────────────────────  │
+│  • Build context from passages      │
+│  • Add metadata (source, category)  │
+│  • Format for LLM input            │
+│  • Create enriched prompt          │
+└─────────────────────────────────────┘
+    ↓
+┌─────────────────────────────────────┐
+│  3. GENERATION PHASE                │
+│  ─────────────────────────────────  │
+│  • Send prompt to Ollama LLM        │
+│  • Generate response using context  │
+│  • Cite source verses              │
+│  • Provide practical insights      │
+└─────────────────────────────────────┘
+    ↓
+Comprehensive Answer with Sources
+```
+
+### Component Details
+
+#### 1. **Knowledge Base (Corpus)**
+- **Location**: `nalanda_library/`, `dharmaganj/`, `sacred_texts_hindu/`
+- **Format**: Structured text files with metadata
+- **Size**: 183+ documents, 85,895+ verses
+- **Organization**: By domain (medicine, philosophy, epics, etc.)
+
+#### 2. **Retrieval Engine** (`simple_rag_demo.py`)
+```python
+class VedicRAGDemo:
+    def search_verses(query, max_results=5):
+        # Keyword-based search with relevance scoring
+        # Searches: verse content, category, source
+        # Returns: ranked list of relevant passages
+```
+
+**Retrieval Strategy:**
+- **Keyword Matching**: Exact word matches in verse content
+- **Category Matching**: Searches document categories (2x weight)
+- **Source Matching**: Searches scripture names (2x weight)
+- **Relevance Scoring**: Combines all matches into single score
+- **Ranking**: Returns top N results by score
+
+#### 3. **LLM Integration** (`ollama_rag_ui.py`)
+- **Model**: Ollama (local, private, no API keys)
+- **Supported Models**: Mistral, Neural-Chat, Llama2, Dolphin-Mixtral
+- **Connection**: HTTP API to local Ollama server
+- **Temperature**: 0.7 (balanced creativity/accuracy)
+
+#### 4. **User Interface** (Streamlit)
+- **Framework**: Streamlit (modern web UI)
+- **Features**:
+  - Real-time model selection
+  - Configurable retrieval parameters
+  - Verse visualization with Sanskrit/English
+  - Conversation history saving
+  - Connection status monitoring
+
 ## 🚀 Key Features of Digital Nalanda
 
 - **📖 Scientific Authenticity**: Every insight backed by original Sanskrit verses with accurate translations
@@ -426,33 +517,386 @@ We're building a comprehensive platform that makes Nalanda's knowledge accessibl
 
 ### Prerequisites
 
-- Python 3.9+
-- Internet connection for dataset download
+- **Python 3.9+**
+- **Internet connection** for dataset download
+- **Ollama** (for LLM-powered RAG interface)
+- **Docker** (optional, for containerized deployment)
 - Passion for preserving ancient scientific wisdom
 
-### Quick Setup
+---
 
-1. **🚀 Clone and Install:**
-   ```bash
-   git clone https://github.com/yourusername/digital-nalanda-university.git
-   cd digital-nalanda-university
-   pip install -r requirements.txt
-   ```
+## 📋 Setup Instructions
 
-2. **📚 Download Ancient Knowledge:**
-   ```bash
-   python VedicDatasetGenerator.py
-   ```
-   This downloads and prepares the initial collection of ancient scientific texts.
+### Option A: Local Setup (Recommended for Development)
 
-3. **🎓 Begin Your Journey:**
-   ```bash
-   # Interactive exploration of ancient wisdom
-   python simple_rag_demo.py
+#### Step 1: Install Python Dependencies
 
-   # Test with sample queries
-   python test_rag.py
-   ```
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/digital-nalanda-university.git
+cd digital-nalanda-university
+
+# Create virtual environment (optional but recommended)
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+#### Step 2: Download Ancient Knowledge
+
+```bash
+python VedicDatasetGenerator.py
+```
+
+This creates the `nalanda_library/` directory with:
+- 85,895+ verses from ancient texts
+- Structured metadata for RAG retrieval
+- Multiple corpus parts for efficient loading
+
+**Output Structure:**
+```
+nalanda_library/
+├── dataset_metadata.json
+├── nalanda_corpus_part_1.txt
+├── nalanda_corpus_part_2.txt
+├── nalanda_corpus_part_3.txt
+├── nalanda_corpus_part_4.txt
+└── nalanda_corpus_part_5.txt
+```
+
+#### Step 3: Test the RAG System Locally
+
+```bash
+# Test basic RAG functionality
+python test_rag.py
+
+# Interactive command-line RAG
+python simple_rag_demo.py
+```
+
+**Sample Queries:**
+- "courage"
+- "duty and righteousness"
+- "wisdom and knowledge"
+- "leadership"
+- "peace and meditation"
+
+---
+
+### Option B: RAG with Ollama (Full AI-Powered System)
+
+#### Step 1: Install Ollama
+
+Download from: https://ollama.ai
+
+#### Step 2: Pull an LLM Model
+
+```bash
+# Recommended: Mistral (7B, balanced speed/quality)
+ollama pull mistral
+
+# Alternatives:
+ollama pull neural-chat      # Smaller, faster
+ollama pull llama2           # Larger, more capable
+ollama pull dolphin-mixtral  # Specialized
+```
+
+#### Step 3: Start Ollama Server
+
+```bash
+ollama serve
+```
+
+Server runs on `http://localhost:11434`
+
+#### Step 4: Run the Streamlit RAG UI
+
+```bash
+streamlit run ollama_rag_ui.py
+```
+
+Opens at `http://localhost:8501`
+
+**Features:**
+- ✅ Real-time model selection
+- ✅ Configurable verse retrieval
+- ✅ Beautiful verse visualization
+- ✅ Conversation history saving
+- ✅ Connection status monitoring
+
+---
+
+### Option C: Docker Deployment (Production)
+
+#### Step 1: Build and Run Containers
+
+```bash
+cd Docker\ Code
+docker compose up --build
+```
+
+**Services Started:**
+- ChromaDB (vector database): `http://localhost:8000`
+- FastAPI (RAG backend): `http://localhost:8080`
+
+#### Step 2: Ingest Data into ChromaDB
+
+```bash
+docker exec -it nalanda-api python ingest.py
+```
+
+This:
+- Reads documents from `./data`
+- Generates embeddings via Ollama
+- Stores in ChromaDB with vector search
+
+#### Step 3: Query the API
+
+```bash
+curl -X POST http://localhost:8080/query \
+  -H "Content-Type: application/json" \
+  -d '{"query": "ancient surgical techniques"}'
+```
+
+---
+
+## 🎯 Quick Start Comparison
+
+| Method | Setup Time | Best For | Features |
+|--------|-----------|----------|----------|
+| **Local RAG** | 5 min | Development, Testing | Simple, fast, no LLM |
+| **Ollama RAG** | 15 min | Interactive Use | AI-powered, beautiful UI |
+| **Docker** | 20 min | Production, API Access | Scalable, vector search |
+
+---
+
+## 🚀 Begin Your Journey
+
+### 1. **Quick Test** (5 minutes)
+```bash
+pip install -r requirements.txt
+python VedicDatasetGenerator.py
+python test_rag.py
+```
+
+### 2. **Interactive Exploration** (10 minutes)
+```bash
+python simple_rag_demo.py
+```
+
+### 3. **Full AI Experience** (20 minutes)
+```bash
+# Terminal 1: Start Ollama
+ollama serve
+
+# Terminal 2: Run Streamlit UI
+streamlit run ollama_rag_ui.py
+```
+
+### 4. **Production Deployment** (30 minutes)
+```bash
+cd Docker\ Code
+docker compose up --build
+docker exec -it nalanda-api python ingest.py
+```
+
+---
+
+## 📊 System Architecture Comparison
+
+### Local RAG (`simple_rag_demo.py`)
+```
+User Query
+    ↓
+Keyword Search (in-memory)
+    ↓
+Retrieve Verses
+    ↓
+Format Response
+    ↓
+Display Results
+```
+**Pros**: Fast, no dependencies, offline
+**Cons**: No AI, basic keyword matching
+
+### Ollama RAG (`ollama_rag_ui.py`)
+```
+User Query
+    ↓
+Keyword Search
+    ↓
+Retrieve Verses
+    ↓
+Build Prompt with Context
+    ↓
+Ollama LLM Generation
+    ↓
+Display with Sources
+```
+**Pros**: AI-powered, beautiful UI, context-aware
+**Cons**: Requires Ollama, slower
+
+### Docker RAG (`Docker Code/`)
+```
+User Query
+    ↓
+FastAPI Endpoint
+    ↓
+Vector Search (ChromaDB)
+    ↓
+Retrieve Embeddings
+    ↓
+Ollama LLM
+    ↓
+JSON Response
+```
+**Pros**: Scalable, API-based, semantic search
+**Cons**: Complex setup, requires Docker
+
+---
+
+## 🔧 Configuration Guide
+
+### Ollama RAG Settings
+
+**In `ollama_rag_ui.py` sidebar:**
+
+1. **Ollama Server URL**
+   - Default: `http://localhost:11434`
+   - Change if Ollama runs on different host/port
+
+2. **Model Selection**
+   - Mistral: Balanced (7B)
+   - Neural-Chat: Fast (7B)
+   - Llama2: Capable (13B)
+   - Dolphin-Mixtral: Specialized (8x7B)
+
+3. **RAG Settings**
+   - **Max Verses**: 1-10 (default: 3)
+   - **Use RAG Context**: Toggle on/off
+
+### Performance Tuning
+
+**For Speed:**
+```python
+# Use smaller model
+ollama pull neural-chat
+
+# Reduce verses
+max_verses = 1
+
+# Disable RAG
+use_rag = False
+```
+
+**For Quality:**
+```python
+# Use larger model
+ollama pull llama2
+
+# Increase verses
+max_verses = 5
+
+# Enable RAG
+use_rag = True
+```
+
+---
+
+## 🐛 Troubleshooting
+
+### "Cannot connect to Ollama"
+- Ensure Ollama is running: `ollama serve`
+- Check URL is correct (default: `http://localhost:11434`)
+- On Windows, Ollama may run as background service
+
+### "No models found"
+- Pull a model: `ollama pull mistral`
+- List models: `ollama list`
+
+### "Dataset not found"
+- Run: `python VedicDatasetGenerator.py`
+- Check `nalanda_library/` directory exists
+
+### "Request timeout"
+- Model is slow to respond
+- Try smaller model: `ollama pull neural-chat`
+- Reduce `max_verses` setting
+
+### Docker Issues
+- Remove old containers: `docker compose down -v`
+- Rebuild: `docker compose up --build`
+- Check logs: `docker compose logs -f`
+
+---
+
+## 📚 File Organization
+
+```
+Code Workspace/
+├── README.md                          # This file
+├── requirements.txt                   # Python dependencies
+├── simple_rag_demo.py                # Basic RAG system
+├── test_rag.py                       # Test suite
+├── ollama_rag_ui.py                  # Streamlit UI
+├── OLLAMA_RAG_SETUP.md               # Ollama setup guide
+│
+├── nalanda_library/                  # Ancient texts corpus
+│   ├── dataset_metadata.json
+│   └── nalanda_corpus_part_*.txt
+│
+├── dharmaganj/                       # SARIT corpus
+│   ├── ratnasagara/
+│   ├── ratnaranjaka/
+│   └── ratnodadhi/
+│
+├── sacred_texts_hindu/               # Hindu texts collection
+│   ├── Vedas/
+│   ├── Upanishads/
+│   ├── Puranas/
+│   └── metadata.json
+│
+└── Docker Code/                      # Production deployment
+    ├── docker-compose.yml
+    ├── Dockerfile
+    ├── main.py
+    ├── ingest.py
+    └── README.md
+```
+
+---
+
+## 🎓 Begin Your Journey
+
+### 1. **Quick Test** (5 minutes)
+```bash
+pip install -r requirements.txt
+python VedicDatasetGenerator.py
+python test_rag.py
+```
+
+### 2. **Interactive Exploration** (10 minutes)
+```bash
+python simple_rag_demo.py
+```
+
+### 3. **Full AI Experience** (20 minutes)
+```bash
+# Terminal 1: Start Ollama
+ollama serve
+
+# Terminal 2: Run Streamlit UI
+streamlit run ollama_rag_ui.py
+```
+
+### 4. **Production Deployment** (30 minutes)
+```bash
+cd Docker\ Code
+docker compose up --build
+docker exec -it nalanda-api python ingest.py
+```
 
 ## 📁 The Digital Library Structure
 
