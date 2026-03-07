@@ -8,10 +8,10 @@ from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.core.node_parser import SentenceSplitter
 
 # Configuration
-OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://host.docker.internal:11434")
+OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 CHROMA_HOST = os.getenv("CHROMA_HOST", "localhost")
-CHROMA_PORT = int(os.getenv("CHROMA_PORT", "8000")) # Changed to 8000 to match standard ChromaDB port
-DATA_DIR = Path("./data")
+CHROMA_PORT = int(os.getenv("CHROMA_PORT", "8001")) # Use 8001 when running locally (Docker maps 8001->8000)
+DATA_DIR = Path("./dharmaganj")
 
 def main():
     print("=" * 60)
@@ -20,20 +20,22 @@ def main():
 
     # 1. Ensure directory exists
     if not DATA_DIR.exists():
-        DATA_DIR.mkdir(parents=True, exist_ok=True)
-        print(f"Created directory at {DATA_DIR.absolute()}")
-        print("Please drop your .txt or .md scripture files in there and run again.")
-        sys.exit(0)
+        print(f"ERROR: Data directory not found at {DATA_DIR.absolute()}")
+        sys.exit(1)
 
-    # 2. Load Documents using LlamaIndex native reader
-    print("Reading files from ./data...")
-    documents = SimpleDirectoryReader(input_dir=str(DATA_DIR), required_exts=[".txt", ".md"]).load_data()
+    # 2. Load Documents using LlamaIndex native reader (recursively from all subdirectories)
+    print(f"Reading files recursively from {DATA_DIR.absolute()}...")
+    documents = SimpleDirectoryReader(
+        input_dir=str(DATA_DIR), 
+        required_exts=[".txt", ".md"],
+        recursive=True
+    ).load_data()
     
     if not documents:
-        print("No .txt or .md documents found in the data directory.")
+        print("No .txt or .md documents found in the dharmaganj directory.")
         sys.exit(0)
         
-    print(f"Loaded {len(documents)} document pages/files.")
+    print(f"Loaded {len(documents)} document pages/files from dharmaganj directory.")
 
     # 3. Intelligent Scripture Chunking
     # chunk_size=512 tokens is roughly 380 words (perfect for a verse + commentary)

@@ -1,0 +1,35 @@
+# Core Dependencies for Vedic RAG AI System
+# Generated from comprehensive code analysis
+
+# LLM & RAG Framework
+llama-index-core>=0.10.0
+llama-index-vector-stores-chroma>=0.1.2
+llama-index-embeddings-ollama>=0.1.0
+llama-index-llms-ollama>=0.1.0
+
+# Vector Database
+chromadb>=0.4.0
+
+# Web Framework & API
+fastapi>=0.104.0
+uvicorn>=0.24.0
+pydantic>=2.5.0
+
+# Frontend
+streamlit>=1.28.0
+
+# Data Processing
+pandas>=2.1.0
+datasets>=2.14.0
+huggingface-hub>=0.19.0
+
+# Web Scraping
+requests>=2.31.0
+cloudscraper>=1.2.71
+beautifulsoup4>=4.12.0
+
+# Utilities
+python-dotenv>=1.0.0
+
+# Optional but recommended
+numpy>=1.24.0
