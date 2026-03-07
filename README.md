@@ -668,7 +668,171 @@ curl -X POST http://localhost:8080/query \
 |--------|-----------|----------|----------|
 | **Local RAG** | 5 min | Development, Testing | Simple, fast, no LLM |
 | **Ollama RAG** | 15 min | Interactive Use | AI-powered, beautiful UI |
+| **Digital Nalanda Frontend** | 10 min | Production UI | Premium design, backend-connected |
 | **Docker** | 20 min | Production, API Access | Scalable, vector search |
+
+---
+
+## 🎨 Digital Nalanda Frontend (V2.4 - New!)
+
+A professional, sleek Streamlit-based frontend for the Digital Nalanda RAG system with premium academic design and full backend integration.
+
+### Features
+
+#### Design & Branding
+- **Premium Academic Aesthetic**: Dark theme with Bhagwa (saffron) color accents reflecting Hindu cultural heritage
+- **Responsive Layout**: Wide-page layout with collapsible sidebar navigation
+- **Custom Typography**: Serif fonts (Crimson Text) for headings, sans-serif (Inter) for body text
+- **Color Palette**:
+  - Deep Charcoal: `#1a1a1a` (primary background)
+  - Bhagwa (Saffron): `#FF9933` (accents and highlights)
+  - Off-White: `#F5F5F5` (text)
+  - Secondary Dark: `#2d2d2d` (secondary backgrounds)
+
+#### Chat Interface
+- Full conversation history with persistent session state
+- User and assistant message differentiation with visual styling
+- Real-time message streaming support
+- Pinned input field at bottom of screen
+- Proper text spacing and line-height to prevent overlapping
+
+#### RAG Features
+- **Sources Expander**: View specific verses and text chunks retrieved from Vector DB
+- **Confidence Scores**: Relevance metrics displayed as badges for each source
+- **Sanskrit Display**: Original Sanskrit shlokas with transliteration
+- **Scholarly Commentaries**: Links and references to classical commentaries
+
+#### Researcher Mode
+- Toggle in sidebar for detailed scholarly information
+- Shows original Sanskrit shlokas and transliteration
+- Displays multiple scholarly commentary references
+- Ideal for academic research and deep exploration
+
+#### Navigation & UX
+- **Chat**: Main interface for querying scriptures
+- **Browse Scriptures**: Category-based scripture exploration
+- **About**: Project information and technology stack
+- **Backend Status**: Real-time backend health indicator
+- **Sample Questions**: Pre-populated grid of common questions with click-to-query
+
+### Installation & Setup
+
+#### Prerequisites
+- Python 3.8+
+- Virtual environment (recommended)
+- Backend running on `http://localhost:8080`
+
+#### Quick Start
+
+```bash
+# Navigate to frontend directory
+cd frontend_streamlit
+
+# Create and activate virtual environment
+python -m venv venv
+venv\Scripts\activate  # On Windows
+# or
+source venv/bin/activate  # On macOS/Linux
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run the application
+streamlit run main.py
+```
+
+The app will open at `http://localhost:8503`
+
+### Configuration
+
+#### Environment Variables
+```bash
+# Override backend URL (default: http://localhost:8080)
+set BACKEND_URL=http://your-backend-url:port
+```
+
+#### Streamlit Config (`.streamlit/config.toml`)
+Customize theme and server settings:
+- Primary color: `#FF9933` (Bhagwa)
+- Background: `#1a1a1a` (Deep Charcoal)
+- Secondary background: `#2d2d2d`
+- Text color: `#F5F5F5` (Off-white)
+
+### File Structure
+
+```
+frontend_streamlit/
+├── main.py                          # Main Streamlit application
+├── api_client.py                    # Backend API integration
+├── test_backend_connection.py       # Connection test script
+├── requirements.txt                 # Python dependencies
+├── .streamlit/
+│   └── config.toml                  # Streamlit theme configuration
+├── README.md                        # User documentation
+└── SETUP_GUIDE.md                   # Detailed setup guide
+```
+
+### API Integration
+
+The frontend connects to the backend via `api_client.py`:
+
+```python
+# Query the backend
+from api_client import query_backend
+
+result = query_backend("What is Brahman according to Vedanta?")
+# Returns: {
+#   "success": True,
+#   "answer": "...",
+#   "sources": [...],
+#   "confidence": 0.85
+# }
+```
+
+### Testing the Connection
+
+```bash
+python test_backend_connection.py
+```
+
+Expected output:
+```
+1. Checking backend health...
+   Status: HEALTHY
+
+2. Getting detailed backend status...
+   Status: {healthy, service info, etc.}
+
+3. Testing a sample query...
+   Query: What is Brahman according to Vedanta?
+   Status: SUCCESS
+   Answer: [Retrieved from scriptures]
+   Sources found: 2
+   Confidence: 85%
+```
+
+### Performance Notes
+
+- **First Query**: May take 60-120 seconds (LLM warmup)
+- **Subsequent Queries**: 30-60 seconds (cached embeddings)
+- **Memory Usage**: ~4GB for LLM + embeddings
+- **Recommended**: Run on system with 8GB+ RAM
+
+### Troubleshooting
+
+**Backend Connection Issues**
+1. Check if Docker containers are running: `docker ps`
+2. Verify Ollama is running: `http://localhost:11434/api/tags`
+3. Check backend logs: `docker logs nalanda-api`
+
+**Slow Responses**
+- LLM inference can take 30-120 seconds depending on query complexity
+- Timeout is set to 120 seconds in `api_client.py`
+
+**No Sources Displayed**
+- Ensure data has been ingested: `docker exec nalanda-api python ingest.py`
+- Check ChromaDB collection has data
+- Verify query matches indexed documents
 
 ---
 
