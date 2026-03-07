@@ -3,6 +3,7 @@ from contextlib import asynccontextmanager
 from typing import List, Dict, Any
 import chromadb
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from llama_index.core import VectorStoreIndex, Settings
 from llama_index.vector_stores.chroma import ChromaVectorStore
@@ -11,9 +12,9 @@ from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.core.storage import StorageContext
 
 # Configuration
-OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://host.docker.internal:11434")
+OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 CHROMA_HOST = os.getenv("CHROMA_HOST", "localhost")
-CHROMA_PORT = int(os.getenv("CHROMA_PORT", "8000")) # FIXED: Matched to standard 8000 port
+CHROMA_PORT = int(os.getenv("CHROMA_PORT", "8000"))
 
 chroma_client = None
 index = None
@@ -66,6 +67,14 @@ app = FastAPI(
     description="Local RAG API for Ancient Indian Scriptures",
     version="1.0.0",
     lifespan=lifespan
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 class QueryRequest(BaseModel):

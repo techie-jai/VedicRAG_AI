@@ -7,10 +7,14 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY main.py .
 COPY ingest.py .
+COPY entrypoint.sh .
+RUN chmod +x entrypoint.sh
 
-ENV OLLAMA_BASE_URL=http://host.docker.internal:11434
+ENV OLLAMA_BASE_URL=http://ollama:11434
+ENV CHROMA_HOST=chroma
+ENV CHROMA_PORT=8000
 ENV PYTHONUNBUFFERED=1
 
 EXPOSE 8000
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+ENTRYPOINT ["./entrypoint.sh"]
