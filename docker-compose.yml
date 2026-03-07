@@ -6,6 +6,7 @@ services:
       - "11434:11434"
     volumes:
       - ollama_data:/root/.ollama
+      - C:\Users\Jaikm\.ollama\models:/root/.ollama/models
     networks:
       - nalanda-network
     environment:

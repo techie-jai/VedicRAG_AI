@@ -24,14 +24,24 @@ if [ $attempt -eq $max_attempts ]; then
     exit 1
 fi
 
-# Pull required models
+# Verify required models are available
 echo ""
-echo "Pulling required Ollama models..."
-echo "  - Pulling gpt-oss:20b (LLM)..."
-ollama pull gpt-oss:20b || echo "  Warning: Could not pull gpt-oss:20b, it may already exist"
+echo "Verifying Ollama models..."
+MODELS=$(curl -s http://ollama:11434/api/tags | grep -o '"name":"[^"]*"' || echo "")
 
-echo "  - Pulling nomic-embed-text (Embeddings)..."
-ollama pull nomic-embed-text || echo "  Warning: Could not pull nomic-embed-text, it may already exist"
+if echo "$MODELS" | grep -q "gpt-oss"; then
+    echo "✓ gpt-oss:20b model found"
+else
+    echo "  Pulling gpt-oss:20b (LLM)..."
+    ollama pull gpt-oss:20b || echo "  Warning: Could not pull gpt-oss:20b"
+fi
+
+if echo "$MODELS" | grep -q "nomic-embed-text"; then
+    echo "✓ nomic-embed-text model found"
+else
+    echo "  Pulling nomic-embed-text (Embeddings)..."
+    ollama pull nomic-embed-text || echo "  Warning: Could not pull nomic-embed-text"
+fi
 
 echo "✓ Models ready"
 
