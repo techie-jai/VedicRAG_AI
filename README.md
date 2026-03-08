@@ -673,184 +673,371 @@ curl -X POST http://localhost:8080/query \
 
 ---
 
-## 🎨 Digital Nalanda Frontend (V2.4 - New!)
+## 🎨 Digital Nalanda Frontend (V2.5 - Modern React/Vite)
 
-A professional, sleek Streamlit-based frontend for the Digital Nalanda RAG system with premium academic design and full backend integration.
+A modern, responsive React/Vite-based frontend for the Digital Nalanda RAG system with beautiful UI and seamless backend integration.
 
 ### Features
 
-#### Design & Branding
-- **Premium Academic Aesthetic**: Dark theme with Bhagwa (saffron) color accents reflecting Hindu cultural heritage
-- **Responsive Layout**: Wide-page layout with collapsible sidebar navigation
-- **Custom Typography**: Serif fonts (Crimson Text) for headings, sans-serif (Inter) for body text
-- **Color Palette**:
-  - Deep Charcoal: `#1a1a1a` (primary background)
-  - Bhagwa (Saffron): `#FF9933` (accents and highlights)
-  - Off-White: `#F5F5F5` (text)
-  - Secondary Dark: `#2d2d2d` (secondary backgrounds)
+#### Design & Technology
+- **Modern React/Vite Stack**: Fast, responsive single-page application
+- **TailwindCSS Styling**: Beautiful, utility-first CSS framework
+- **Lucide Icons**: Professional icon library for enhanced UX
+- **Dark Theme**: Premium dark interface with blue accents
+- **Responsive Design**: Works seamlessly on desktop and mobile
 
 #### Chat Interface
-- Full conversation history with persistent session state
-- User and assistant message differentiation with visual styling
-- Real-time message streaming support
-- Pinned input field at bottom of screen
-- Proper text spacing and line-height to prevent overlapping
+- Real-time conversation with streaming responses
+- User and assistant message differentiation
+- Source citations with verse references
+- Health status monitoring
+- Beautiful message formatting with syntax highlighting
 
 #### RAG Features
-- **Sources Expander**: View specific verses and text chunks retrieved from Vector DB
-- **Confidence Scores**: Relevance metrics displayed as badges for each source
-- **Sanskrit Display**: Original Sanskrit shlokas with transliteration
-- **Scholarly Commentaries**: Links and references to classical commentaries
+- **Source Display**: View retrieved verses and their sources
+- **Citation Tracking**: Know exactly which scriptures informed the answer
+- **Verse Metadata**: Source, category, and relevance information
+- **Semantic Search**: Find answers based on meaning, not just keywords
 
-#### Researcher Mode
-- Toggle in sidebar for detailed scholarly information
-- Shows original Sanskrit shlokas and transliteration
-- Displays multiple scholarly commentary references
-- Ideal for academic research and deep exploration
-
-#### Navigation & UX
-- **Chat**: Main interface for querying scriptures
-- **Browse Scriptures**: Category-based scripture exploration
-- **About**: Project information and technology stack
-- **Backend Status**: Real-time backend health indicator
-- **Sample Questions**: Pre-populated grid of common questions with click-to-query
+#### User Experience
+- **Instant Startup**: Automatically opens in browser
+- **Health Monitoring**: Real-time backend status indicator
+- **Error Handling**: Clear error messages and recovery suggestions
+- **Conversation History**: Persistent chat history during session
 
 ### Installation & Setup
 
 #### Prerequisites
-- Python 3.8+
-- Virtual environment (recommended)
+- Node.js 16+ and npm
 - Backend running on `http://localhost:8080`
+- Docker containers running (Ollama, ChromaDB, FastAPI)
 
-#### Quick Start
+#### Quick Start with Automated Script
+
+```bash
+# Run the complete startup script (Windows)
+.\start-all.bat
+
+# This automatically:
+# 1. Starts all Docker containers
+# 2. Waits for services to initialize
+# 3. Starts frontend dev server
+# 4. Opens http://localhost:3000 in your browser
+```
+
+#### Manual Setup
 
 ```bash
 # Navigate to frontend directory
-cd frontend_streamlit
-
-# Create and activate virtual environment
-python -m venv venv
-venv\Scripts\activate  # On Windows
-# or
-source venv/bin/activate  # On macOS/Linux
+cd frontend
 
 # Install dependencies
-pip install -r requirements.txt
+npm install
 
-# Run the application
-streamlit run main.py
+# Start development server
+npm run dev
 ```
 
-The app will open at `http://localhost:8503`
+The app will open at `http://localhost:3000`
 
 ### Configuration
 
 #### Environment Variables
 ```bash
-# Override backend URL (default: http://localhost:8080)
-set BACKEND_URL=http://your-backend-url:port
+# .env or environment setup
+VITE_API_URL=http://localhost:8080  # Backend API URL
 ```
 
-#### Streamlit Config (`.streamlit/config.toml`)
-Customize theme and server settings:
-- Primary color: `#FF9933` (Bhagwa)
-- Background: `#1a1a1a` (Deep Charcoal)
-- Secondary background: `#2d2d2d`
-- Text color: `#F5F5F5` (Off-white)
+#### Vite Config (`vite.config.js`)
+- Development server runs on port 3000
+- API proxy configured for `/api` routes
+- Hot module replacement enabled for development
 
 ### File Structure
 
 ```
-frontend_streamlit/
-├── main.py                          # Main Streamlit application
-├── api_client.py                    # Backend API integration
-├── test_backend_connection.py       # Connection test script
-├── requirements.txt                 # Python dependencies
-├── .streamlit/
-│   └── config.toml                  # Streamlit theme configuration
-├── README.md                        # User documentation
-└── SETUP_GUIDE.md                   # Detailed setup guide
+frontend/
+├── src/
+│   ├── App.jsx                      # Main application component
+│   ├── components/
+│   │   ├── QueryInterface.jsx       # Query input component
+│   │   ├── SourceCard.jsx           # Source citation display
+│   │   ├── Header.jsx               # Application header
+│   │   └── HealthStatus.jsx         # Backend health indicator
+│   ├── index.css                    # Global styles
+│   └── main.jsx                     # Entry point
+├── vite.config.js                   # Vite configuration
+├── package.json                     # Dependencies
+├── tailwind.config.js               # TailwindCSS configuration
+└── README.md                        # Frontend documentation
 ```
 
 ### API Integration
 
-The frontend connects to the backend via `api_client.py`:
+The frontend connects to the backend via fetch API:
 
-```python
-# Query the backend
-from api_client import query_backend
+```javascript
+// Query the backend
+const response = await fetch('http://localhost:8080/query', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ question: 'Your question here' })
+})
 
-result = query_backend("What is Brahman according to Vedanta?")
-# Returns: {
-#   "success": True,
-#   "answer": "...",
-#   "sources": [...],
-#   "confidence": 0.85
-# }
+const data = await response.json()
+// Returns: {
+//   "answer": "...",
+//   "sources": [...]
+// }
 ```
 
-### Testing the Connection
+### Health Check
 
-```bash
-python test_backend_connection.py
-```
+The frontend automatically checks backend health:
 
-Expected output:
-```
-1. Checking backend health...
-   Status: HEALTHY
+```javascript
+// Health endpoint
+GET http://localhost:8080/health
 
-2. Getting detailed backend status...
-   Status: {healthy, service info, etc.}
-
-3. Testing a sample query...
-   Query: What is Brahman according to Vedanta?
-   Status: SUCCESS
-   Answer: [Retrieved from scriptures]
-   Sources found: 2
-   Confidence: 85%
+// Response: { "status": "healthy", ... }
 ```
 
 ### Performance Notes
 
-- **First Query**: May take 60-120 seconds (LLM warmup)
-- **Subsequent Queries**: 30-60 seconds (cached embeddings)
-- **Memory Usage**: ~4GB for LLM + embeddings
-- **Recommended**: Run on system with 8GB+ RAM
+- **First Query**: 30-60 seconds (data ingestion + LLM warmup)
+- **Subsequent Queries**: 10-30 seconds (cached embeddings)
+- **Memory Usage**: ~4GB for Docker containers
+- **Recommended**: System with 8GB+ RAM
 
 ### Troubleshooting
 
-**Backend Connection Issues**
-1. Check if Docker containers are running: `docker ps`
-2. Verify Ollama is running: `http://localhost:11434/api/tags`
+**Frontend won't load**
+1. Check if dev server is running: `npm run dev`
+2. Verify port 3000 is available
+3. Clear browser cache and refresh
+
+**Backend connection error**
+1. Check if Docker containers are running: `docker compose ps`
+2. Verify backend health: `curl http://localhost:8080/health`
 3. Check backend logs: `docker logs nalanda-api`
 
-**Slow Responses**
-- LLM inference can take 30-120 seconds depending on query complexity
-- Timeout is set to 120 seconds in `api_client.py`
-
-**No Sources Displayed**
-- Ensure data has been ingested: `docker exec nalanda-api python ingest.py`
-- Check ChromaDB collection has data
-- Verify query matches indexed documents
+**Slow responses**
+- Data ingestion is in progress (first startup only)
+- Check Docker resource usage: `docker stats`
+- Ensure Ollama has sufficient memory
 
 ---
 
-## 🚀 Begin Your Journey
+## � Docker-Based Ollama Setup (V2.5 - Production Ready)
 
-### 1. **Quick Test** (5 minutes)
-```bash
-pip install -r requirements.txt
-python VedicDatasetGenerator.py
-python test_rag.py
+Complete containerized deployment with Ollama, ChromaDB, and FastAPI backend.
+
+### Architecture
+
+```
+┌─────────────────────────────────────────────────────┐
+│                  Frontend (React/Vite)              │
+│              http://localhost:3000                  │
+└────────────────────┬────────────────────────────────┘
+                     │
+┌────────────────────▼────────────────────────────────┐
+│          FastAPI Backend (nalanda-api)              │
+│              http://localhost:8080                  │
+│  ┌──────────────────────────────────────────────┐   │
+│  │  RAG Engine + LlamaIndex + ChromaDB Client   │   │
+│  └──────────────────────────────────────────────┘   │
+└────────────────────┬────────────────────────────────┘
+                     │
+        ┌────────────┴────────────┐
+        │                         │
+┌───────▼──────────┐    ┌────────▼──────────┐
+│  Ollama Server   │    │   ChromaDB        │
+│ (LLM + Embed)    │    │  (Vector DB)      │
+│ :11435           │    │  :8000            │
+└──────────────────┘    └───────────────────┘
 ```
 
-### 2. **Interactive Exploration** (10 minutes)
+### Services
+
+| Service | Port | Container | Purpose |
+|---------|------|-----------|---------|
+| **Frontend** | 3000 | Host | React/Vite UI |
+| **FastAPI** | 8080 | nalanda-api | RAG backend |
+| **Ollama** | 11435 | ollama-server | LLM + embeddings |
+| **ChromaDB** | 8000 | chroma-db | Vector database |
+
+### Quick Start with Automated Script
+
 ```bash
+# Windows - Run the complete startup script
+.\start-all.bat
+
+# This automatically:
+# 1. Starts Docker containers (Ollama, ChromaDB, FastAPI)
+# 2. Waits for services to initialize
+# 3. Starts frontend dev server in separate window
+# 4. Opens http://localhost:3000 in your browser
+```
+
+### Manual Docker Setup
+
+```bash
+# Start all services
+docker compose up -d
+
+# Wait for initialization (8-10 seconds)
+Start-Sleep -Seconds 10
+
+# Start frontend
+cd frontend
+npm run dev
+
+# Open browser to http://localhost:3000
+```
+
+### Data Persistence
+
+**ChromaDB stores data persistently in volumes:**
+
+```bash
+# View volumes
+docker volume ls | findstr chroma
+
+# Inspect volume location
+docker volume inspect codeworkspace_chroma_data
+
+# Data persists across restarts
+docker compose down      # Keeps data
+docker compose down -v   # Deletes data (CAUTION!)
+```
+
+### Monitoring Services
+
+```bash
+# View running containers
+docker compose ps
+
+# Check container logs
+docker logs nalanda-api -f
+docker logs ollama-server -f
+docker logs chroma-db -f
+
+# View resource usage
+docker stats
+
+# Check backend health
+curl http://localhost:8080/health
+
+# Check Ollama models
+curl http://localhost:11435/api/tags
+```
+
+### Data Ingestion
+
+**First startup automatically ingests data:**
+
+```bash
+# Check ingestion status
+docker logs nalanda-api | findstr "Ingesting\|successful\|Skipping"
+
+# Manual ingestion (if needed)
+docker exec nalanda-api python ingest.py
+
+# Check ChromaDB collection
+docker exec nalanda-api python -c "import chromadb; client = chromadb.HttpClient(host='chroma', port=8000); collection = client.get_or_create_collection('digital_nalanda'); print(f'Embeddings: {collection.count()}')"
+```
+
+### Configuration
+
+**Environment variables in `docker-compose.yml`:**
+
+```yaml
+environment:
+  - OLLAMA_BASE_URL=http://ollama:11435
+  - CHROMA_HOST=chroma
+  - CHROMA_PORT=8000
+  - OLLAMA_HOST=0.0.0.0:11435
+```
+
+**Ollama models available:**
+
+```bash
+# Pull additional models
+docker exec ollama-server ollama pull mistral
+docker exec ollama-server ollama pull neural-chat
+docker exec ollama-server ollama pull llama2
+
+# List available models
+docker exec ollama-server ollama list
+```
+
+### Troubleshooting Docker
+
+**Port already in use:**
+```bash
+# Find process using port
+netstat -ano | findstr "8080"
+
+# Kill process (Windows)
+taskkill /PID <PID> /F
+
+# Or change port in docker-compose.yml
+```
+
+**Container won't start:**
+```bash
+# Check logs
+docker logs nalanda-api
+
+# Rebuild image
+docker compose down
+docker compose up --build
+
+# Remove old images
+docker image prune -a
+```
+
+**Out of memory:**
+```bash
+# Check resource limits
+docker stats
+
+# Reduce Ollama model size
+docker exec ollama-server ollama pull neural-chat  # Smaller model
+```
+
+---
+
+## 🚀 Quick Start Options
+
+### Option 1: Automated (Recommended)
+```bash
+# Windows - One command to start everything
+.\start-all.bat
+```
+
+### Option 2: Manual Docker + Frontend
+```bash
+# Terminal 1: Start Docker services
+docker compose up -d
+
+# Terminal 2: Start frontend
+cd frontend
+npm run dev
+
+# Open http://localhost:3000
+```
+
+### Option 3: Local Development (No Docker)
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Test RAG system
 python simple_rag_demo.py
 ```
 
-### 3. **Full AI Experience** (20 minutes)
+### Option 4: Full Stack with Ollama
 ```bash
 # Terminal 1: Start Ollama
 ollama serve
@@ -859,12 +1046,14 @@ ollama serve
 streamlit run ollama_rag_ui.py
 ```
 
-### 4. **Production Deployment** (30 minutes)
-```bash
-cd Docker\ Code
-docker compose up --build
-docker exec -it nalanda-api python ingest.py
-```
+### Comparison Table
+
+| Method | Setup Time | Best For | Features |
+|--------|-----------|----------|----------|
+| **Automated Script** | 2 min | Production, Easy setup | One-click startup, auto-opens browser |
+| **Manual Docker** | 5 min | Development, Debugging | Full control, detailed logs |
+| **Local RAG** | 5 min | Testing, Offline | Fast, no dependencies |
+| **Ollama RAG** | 15 min | Interactive use | AI-powered, beautiful UI |
 
 ---
 
