@@ -10,7 +10,7 @@ COPY ingest.py .
 COPY entrypoint.sh .
 RUN chmod +x entrypoint.sh
 
-ENV OLLAMA_BASE_URL=http://ollama:11434
+ENV OLLAMA_BASE_URL=http://ollama:11435
 ENV CHROMA_HOST=chroma
 ENV CHROMA_PORT=8000
 ENV PYTHONUNBUFFERED=1

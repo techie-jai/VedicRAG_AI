@@ -3,16 +3,16 @@ services:
     image: ollama/ollama:latest
     container_name: ollama-server
     ports:
-      - "11434:11434"
+      - "11435:11435"
     volumes:
       - ollama_data:/root/.ollama
       - C:\Users\Jaikm\.ollama\models:/root/.ollama/models
     networks:
       - nalanda-network
     environment:
-      - OLLAMA_HOST=0.0.0.0:11434
+      - OLLAMA_HOST=0.0.0.0:11435
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:11435/api/tags"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -28,13 +28,7 @@ services:
     networks:
       - nalanda-network
     depends_on:
-      ollama:
-        condition: service_healthy
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/heartbeat"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
+      - ollama
 
   fastapi:
     build: .
@@ -42,12 +36,11 @@ services:
     ports:
       - "8080:8000"
     environment:
-      - OLLAMA_BASE_URL=http://ollama:11434
+      - OLLAMA_BASE_URL=http://ollama:11435
       - CHROMA_HOST=chroma
       - CHROMA_PORT=8000
     depends_on:
-      chroma:
-        condition: service_healthy
+      - chroma
     volumes:
       - ./data:/app/data
       - ./dharmaganj:/app/dharmaganj

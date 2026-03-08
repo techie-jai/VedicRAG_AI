@@ -10,7 +10,7 @@ echo "Waiting for Ollama service to be ready..."
 max_attempts=60
 attempt=0
 while [ $attempt -lt $max_attempts ]; do
-    if curl -s http://ollama:11434/api/tags > /dev/null 2>&1; then
+    if python -c "import urllib.request; urllib.request.urlopen('http://ollama:11435/api/tags')" > /dev/null 2>&1; then
         echo "✓ Ollama is ready"
         break
     fi
@@ -27,7 +27,7 @@ fi
 # Verify required models are available
 echo ""
 echo "Verifying Ollama models..."
-MODELS=$(curl -s http://ollama:11434/api/tags | grep -o '"name":"[^"]*"' || echo "")
+MODELS=$(python -c "import urllib.request, json; data=json.loads(urllib.request.urlopen('http://ollama:11435/api/tags').read()); print('\\n'.join([m['name'] for m in data.get('models', [])]))" 2>/dev/null || echo "")
 
 if echo "$MODELS" | grep -q "gpt-oss"; then
     echo "✓ gpt-oss:20b model found"
@@ -51,7 +51,7 @@ echo "Waiting for ChromaDB to be ready..."
 max_attempts=30
 attempt=0
 while [ $attempt -lt $max_attempts ]; do
-    if curl -s http://chroma:8000/api/v1/heartbeat > /dev/null 2>&1; then
+    if python -c "import socket; socket.create_connection(('chroma', 8000), timeout=2)" > /dev/null 2>&1; then
         echo "✓ ChromaDB is ready"
         break
     fi

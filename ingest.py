@@ -23,7 +23,18 @@ def main():
         print(f"ERROR: Data directory not found at {DATA_DIR.absolute()}")
         sys.exit(1)
 
-    # 2. Load Documents using LlamaIndex native reader (recursively from all subdirectories)
+    # 2. Check if ChromaDB already has data (skip re-ingestion)
+    print(f"Connecting to ChromaDB at localhost:{CHROMA_PORT}...")
+    try:
+        chroma_client = chromadb.HttpClient(host=CHROMA_HOST, port=CHROMA_PORT)
+        chroma_collection = chroma_client.get_or_create_collection("digital_nalanda")
+        if chroma_collection.count() > 0:
+            print(f"✓ ChromaDB already contains {chroma_collection.count()} embeddings. Skipping ingestion.")
+            return
+    except Exception as e:
+        print(f"Warning: Could not check ChromaDB status: {e}")
+
+    # 3. Load Documents using LlamaIndex native reader (recursively from all subdirectories)
     print(f"Reading files recursively from {DATA_DIR.absolute()}...")
     documents = SimpleDirectoryReader(
         input_dir=str(DATA_DIR), 
