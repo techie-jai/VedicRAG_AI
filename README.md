@@ -643,14 +643,30 @@ docker compose up --build
 
 #### Step 2: Ingest Data into ChromaDB
 
+**New in V2.4**: Smart incremental ingestion with file tracking
+
 ```bash
-docker exec -it nalanda-api python ingest.py
+# First run - ingests all files
+docker exec nalanda-api python ingest.py
+
+# Subsequent runs - only ingests new/modified files
+docker exec nalanda-api python ingest.py
 ```
 
-This:
-- Reads documents from `./data`
-- Generates embeddings via Ollama
-- Stores in ChromaDB with vector search
+**Features:**
+- ✅ Recursive file discovery (finds files in nested subdirectories)
+- ✅ SQLite tracking database (`ingest_tracker.db`) stores file hashes
+- ✅ Detects new and modified files automatically
+- ✅ Only ingests files that haven't been processed before
+- ✅ Shows count of total files and new files to ingest
+
+**How It Works:**
+1. Scans `dharmaganj/` directory recursively for `.txt` and `.md` files
+2. Compares file hashes against `ingest_tracker.db`
+3. Identifies new/modified files
+4. Generates embeddings via Ollama
+5. Stores in ChromaDB with vector search
+6. Marks files as ingested in the tracker database
 
 #### Step 3: Query the API
 
@@ -659,6 +675,63 @@ curl -X POST http://localhost:8080/query \
   -H "Content-Type: application/json" \
   -d '{"query": "ancient surgical techniques"}'
 ```
+
+---
+
+## 🔄 V2.4 Updates: Data Persistence & Independent Ingestion
+
+### Data Persistence with Docker Volumes
+
+**Problem Solved**: Embeddings are now safely persisted across container restarts.
+
+**Solution**: 
+- ChromaDB volume mounted to `/data` (where ChromaDB stores persistent data)
+- Named volume `chroma_data` configured in `docker-compose.yml`
+- Data survives `docker compose down` commands
+
+**Configuration** (`docker-compose.yml`):
+```yaml
+chroma:
+  image: chromadb/chroma:latest
+  volumes:
+    - chroma_data:/data  # Persistent storage
+  environment:
+    - ANONYMIZED_TELEMETRY=false
+```
+
+**Verification**:
+```bash
+# Check that data persists
+docker compose down
+docker compose up -d
+docker exec nalanda-api python -c "import chromadb; client = chromadb.HttpClient(host='chroma', port=8000); coll = client.get_or_create_collection('digital_nalanda'); print(f'Embeddings: {coll.count()}')"
+```
+
+### Independent Server Startup
+
+**Problem Solved**: Server no longer waits for ingestion to complete during startup.
+
+**Changes**:
+- Removed automatic `ingest.py` call from `entrypoint.sh`
+- Server starts immediately and independently
+- Data ingestion is now a separate, manual operation
+
+**Workflow**:
+```bash
+# 1. Start containers (server starts immediately)
+docker compose up -d
+
+# 2. Ingest data separately (can run anytime)
+docker exec nalanda-api python ingest.py
+
+# 3. Server is ready for queries while ingestion runs in background
+```
+
+**Benefits**:
+- ✅ Faster server startup
+- ✅ Ingestion can be scheduled independently
+- ✅ Server doesn't block on long ingestion operations
+- ✅ Can add new files and re-run ingestion without restarting server
 
 ---
 
