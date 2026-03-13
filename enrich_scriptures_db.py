@@ -11,7 +11,8 @@ def remove_common_suffixes(text):
     common_suffixes = [
         'purana', 'veda', 'sutra', 'samhita', 'shastra', 'gita', 'upanishad',
         'sutras', 'vedas', 'puranas', 'samhitas', 'shastras', 'gitas', 'upanishads',
-        'tantra', 'agama', 'brahman', 'yoga', 'philosophy', 'commentary'
+        'tantra', 'agama', 'brahman', 'yoga', 'philosophy', 'commentary',
+        'part', 'sbe', 'sanskrit', 'principal', 'minor', 'texts', 'hymns'
     ]
     
     text_lower = text.lower()
@@ -44,7 +45,7 @@ def find_scripture_in_dharmaganj(title):
     """
     Search for scripture in dharmaganj folder using fuzzy matching
     Returns tuple: (found, file_name, file_location, score)
-    Only returns True if confidence score >= 0.65 (65%)
+    Only returns True if confidence score >= 0.50 (50%)
     """
     dharmaganj_path = Path('dharmaganj')
     
@@ -65,8 +66,8 @@ def find_scripture_in_dharmaganj(title):
                 best_match_file = str(file_path)
                 best_match_name = file_path.name
     
-    # Only return True if confidence >= 65%
-    if best_match_score >= 0.65:
+    # Only return True if confidence >= 50%
+    if best_match_score >= 0.50:
         print(f"  ✓ Found: {title} -> {best_match_file} (score: {best_match_score:.2f})")
         return True, best_match_name, best_match_file, best_match_score
     

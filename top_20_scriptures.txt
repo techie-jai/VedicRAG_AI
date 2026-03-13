@@ -1,0 +1,231 @@
+id
+rank
+title
+category
+description
+source_data_available
+embeddings_generated
+file_name
+file_location
+======================================================================================================================================================
+
+Record 1:
+  id: 101
+  rank: Rank
+  title: Title
+  category: Category
+  description: Description
+  source_data_available: 0
+  embeddings_generated: 0
+  file_name: None
+  file_location: None
+
+Record 2:
+  id: 127
+  rank: Rank
+  title: Title
+  category: Category
+  description: Description
+  source_data_available: 0
+  embeddings_generated: 0
+  file_name: None
+  file_location: None
+
+Record 3:
+  id: 178
+  rank: Rank
+  title: Title
+  category: Category
+  description: Description
+  source_data_available: 0
+  embeddings_generated: 0
+  file_name: None
+  file_location: None
+
+Record 4:
+  id: 1
+  rank: 1
+  title: Rigveda
+  category: Vedas
+  description: The Rigveda is the oldest and most important of the four Vedas, widely considered the oldest extant text in any Indo-European language, dating back to roughly 1500–1200 BCE. It is a monumental compilation of 1,028 hymns (suktas) containing 10,600 verses, organized into ten books known as Mandalas. The text is primarily a collection of praises directed toward ancient Vedic deities, most notably Agni (the fire god), Indra (the warrior god of rain and storms), and Soma (the sacred plant and deity). It introduces the concept of Rita, the cosmic and moral order of the universe, and explores profound metaphysical questions about the origin of the universe.
+  source_data_available: 0
+  embeddings_generated: 0
+  file_name: None
+  file_location: None
+
+Record 5:
+  id: 2
+  rank: 2
+  title: The Principal Upanishads
+  category: Vedanta / Philosophy
+  description: The Upanishads represent the culminating philosophical, mystical, and spiritual core of the Vedas. Composed largely between 800 and 200 BCE, they mark a monumental shift away from external fire sacrifices toward deep inward contemplation and self-realization. There are over 100 known Upanishads, but about 10 to 13 are considered the "Principal" Upanishads. Their central theme is the exploration of Atman (the eternal inner soul) and Brahman (the ultimate infinite reality), asserting they are one and the same. They formally introduce foundational concepts like Karma, Samsara (cycle of rebirth), and Moksha (spiritual liberation).
+  source_data_available: 0
+  embeddings_generated: 0
+  file_name: None
+  file_location: None
+
+Record 6:
+  id: 3
+  rank: 3
+  title: Bhagavad Gita
+  category: Epic / Philosophy
+  description: The Bhagavad Gita is arguably the most famous and universally revered of all Hindu scriptures. It is a 700-verse text forming a crucial section of the epic Mahabharata. The text is a narrative dialogue between the Pandava prince Arjuna and Lord Krishna, set on the brink of the Kurukshetra War. Arjuna is paralyzed by a moral crisis, and Krishna uses this moment to impart profound spiritual wisdom. The Gita addresses Dharma (righteous duty), urging selfless action (Nishkama Karma), and details the four paths of Yoga: Karma (action), Bhakti (devotion), Jnana (knowledge), and Raja (meditation).
+  source_data_available: 0
+  embeddings_generated: 0
+  file_name: None
+  file_location: None
+
+Record 7:
+  id: 4
+  rank: 4
+  title: Mahabharata
+  category: Itihasa (Epic History)
+  description: The Mahabharata is the longest epic poem ever written in human history, consisting of over 100,000 shlokas. Traditionally ascribed to the sage Vyasa, it narrates the catastrophic dynastic struggle between the Pandavas and their cousins, the Kauravas, culminating in the Kurukshetra War. It functions as an encyclopedia of ancient Indian philosophy, ethics, statecraft, and cosmology, deeply exploring the nuances of Dharma in difficult, real-world situations. It contains within it numerous standalone masterpieces, including the Bhagavad Gita.
+  source_data_available: 1
+  embeddings_generated: 1
+  file_name: The Mahabharata.txt
+  file_location: dharmaganj\ratnaranjaka\itihasa\The Mahabharata.txt
+
+Record 8:
+  id: 5
+  rank: 5
+  title: Ramayana
+  category: Itihasa (Epic History)
+  description: The Ramayana is the second of the great ancient Indian epics, traditionally composed by the sage Valmiki. It chronicles the life and journey of Prince Rama of Ayodhya, revered as an avatar of Vishnu. The narrative follows Rama's 14-year exile, the abduction of his wife Sita by the demon-king Ravana, and Rama's epic quest to rescue her with the help of Hanuman. The Ramayana is fundamentally a text about Dharma, portraying ideal characters and profoundly shaping the culture, morality, and daily life of India and Southeast Asia.
+  source_data_available: 1
+  embeddings_generated: 1
+  file_name: brahmapurana.xml
+  file_location: dharmaganj\ratnaranjaka\purana\raw\brahmapurana.xml
+
+Record 9:
+  id: 6
+  rank: 6
+  title: Yajurveda
+  category: Vedas
+  description: The Yajurveda is the second Veda, compiled roughly between 1200 and 800 BCE. It is primarily a guidebook for the priests who performed complex Vedic fire sacrifices. It contains specific prose formulas, mantras, and incantations for rituals. It is divided into the Shukla (White) Yajurveda, containing pure ritual mantras, and the Krishna (Black) Yajurveda, which intermingles mantras with theological commentary and detailed rules on constructing fire altars. It offers a crucial window into the socio-religious life of an organized agrarian culture.
+  source_data_available: 0
+  embeddings_generated: 0
+  file_name: None
+  file_location: None
+
+Record 10:
+  id: 7
+  rank: 7
+  title: Samaveda
+  category: Vedas
+  description: The Samaveda is deeply revered as the "Veda of Melodies and Chants." Almost entirely derived from the Rigveda, its importance lies in its musicality. The text served as a songbook for priests singing highly structured chants during sacrifices. Words were stretched and set to elaborate seven-note musical notations to enhance spiritual power. The Samaveda is universally recognized as the foundational root of Indian classical music and dance traditions, elevating aesthetic beauty and sound as vehicles for divine connection.
+  source_data_available: 1
+  embeddings_generated: 0
+  file_name: The Sama-Veda.txt
+  file_location: dharmaganj\ratnodadhi\shruti\The Sama-Veda.txt
+
+Record 11:
+  id: 8
+  rank: 8
+  title: Atharvaveda
+  category: Vedas
+  description: The Atharvaveda is the "Veda of Everyday Life" or "Veda of Magical Formulas." It reflects the beliefs and practical needs of common people, featuring spells, charms, and incantations to cure diseases, secure prosperity, and ward off evil. Crucially, it is considered the earliest source of ancient Indian medical knowledge, containing the conceptual roots of Ayurveda. It also features highly sophisticated philosophical hymns speculating on the nature of time and the supreme reality, making it a text of vast dualities.
+  source_data_available: 1
+  embeddings_generated: 0
+  file_name: The Atharva-Veda SBE 42.txt
+  file_location: dharmaganj\ratnodadhi\shruti\The Atharva-Veda SBE 42.txt
+
+Record 12:
+  id: 9
+  rank: 9
+  title: Brahma Sutras
+  category: Vedanta / Philosophy
+  description: The Brahma Sutras, composed by Badarayana, is a foundational text of Hindu philosophy. Its purpose is to systematize and logically summarize the diverse philosophical teachings found in the Upanishads into a cohesive doctrine. Written in 555 highly dense and cryptic aphorisms, it requires guiding commentary. Great philosophers like Adi Shankara, Ramanuja, and Madhvacharya wrote extensive commentaries on it to prove their specific theological interpretations of ancient Vedic truth.
+  source_data_available: 1
+  embeddings_generated: 0
+  file_name: brahmapurana.xml
+  file_location: dharmaganj\ratnaranjaka\purana\raw\brahmapurana.xml
+
+Record 13:
+  id: 10
+  rank: 10
+  title: Yoga Sutras of Patanjali
+  category: Yoga / Philosophy
+  description: The Yoga Sutras is the foundational text of classical Yoga philosophy, compiled by Patanjali around 400 CE. It meticulously analyzes the nature of the mind and the systematic method to achieve spiritual liberation. Patanjali outlines the "Eight-Limbed Path" (Ashtanga Yoga), including ethical disciplines, postures, breath control, sensory withdrawal, concentration, meditation, and absorption into universal consciousness. It presents a rigorous psychological and spiritual framework to untether consciousness from the physical world.
+  source_data_available: 1
+  embeddings_generated: 0
+  file_name: The Yoga Sutras of Patanjali Alternative.txt
+  file_location: dharmaganj\ratnasagara\yoga\The Yoga Sutras of Patanjali Alternative.txt
+
+Record 14:
+  id: 11
+  rank: 11
+  title: Arthashastra
+  category: Statecraft / Economics
+  description: Authored by Chanakya (also known as Kautilya), the chief advisor to Emperor Chandragupta Maurya in the 4th century BCE, the Arthashastra is an ancient Indian treatise on statecraft, economic policy, and military strategy. Often compared to Machiavelli's 'The Prince' (though written centuries earlier), it is a masterpiece of realpolitik. It covers the duties of a king, the management of a vast economy, taxation, diplomacy, the use of spies, laws, and the intricate strategies required to maintain and expand an empire. It provides an unparalleled, pragmatic look at ancient Indian civil society and governance.
+  source_data_available: 1
+  embeddings_generated: 0
+  file_name: kautalyarthasastra.xml
+  file_location: dharmaganj\ratnasagara\arthashastra\raw\kautalyarthasastra.xml
+
+Record 15:
+  id: 12
+  rank: 12
+  title: Dhammapada
+  category: Buddhist Philosophy
+  description: The Dhammapada is arguably the most widely read and revered text in all of Buddhism. Written in the Pali language, it is a collection of sayings attributed directly to Gautama Buddha. The title translates roughly to "Path of Dharma" or "Verses of Truth." Comprising 423 verses divided into 26 chapters, it distills the core ethical and philosophical teachings of Theravada Buddhism. It focuses on the mastery of the mind, the overcoming of desire, the inevitability of karma, and the path to achieving Nirvana. Its simplicity, poetic beauty, and universal moral appeal make it a cornerstone of Eastern philosophy.
+  source_data_available: 0
+  embeddings_generated: 0
+  file_name: None
+  file_location: None
+
+Record 16:
+  id: 13
+  rank: 13
+  title: Sushruta Samhita
+  category: Medicine / Surgery
+  description: The Sushruta Samhita is one of the most important surviving foundational texts of Ayurveda (traditional Indian medicine) and is globally recognized as one of the earliest major treatises on surgery. Attributed to the ancient physician Sushruta (circa 6th century BCE), the text details over 1,120 illnesses, 700 medicinal plants, and describes in astonishing detail various surgical procedures. Most famously, it contains the earliest known descriptions of plastic surgery, specifically rhinoplasty (reconstruction of the nose), as well as techniques for extracting cataracts, treating fractures, and performing amputations.
+  source_data_available: 0
+  embeddings_generated: 0
+  file_name: None
+  file_location: None
+
+Record 17:
+  id: 14
+  rank: 14
+  title: Charaka Samhita
+  category: Medicine / Ayurveda
+  description: Alongside the Sushruta Samhita, the Charaka Samhita is the other foundational pillar of ancient Ayurvedic medicine. While Sushruta focused heavily on surgery, Charaka focused on internal medicine, disease prevention, and the philosophy of holistic health. Compiled around the 2nd century BCE to the 2nd century CE, the text emphasizes that health is not merely the absence of disease, but a balance of the body's three doshas (Vata, Pitta, Kapha), the mind, and the spirit. It covers diagnostics, anatomy, fetal development, and the importance of diet, lifestyle, and medical ethics.
+  source_data_available: 0
+  embeddings_generated: 0
+  file_name: None
+  file_location: None
+
+Record 18:
+  id: 15
+  rank: 15
+  title: Manusmriti
+  category: Dharmashastra / Law
+  description: The Manusmriti (Laws of Manu) is an ancient legal text and constitution among the many Dharmashastras of Hinduism. Believed to have been compiled between 200 BCE and 200 CE, it is formulated as a discourse given by Manu, the progenitor of humanity. It comprehensively outlines the codes of conduct, moral duties (Dharma), laws, and the social structure of ancient India. While historically highly influential in shaping Hindu legal codes and societal norms, it is heavily scrutinized and criticized in the modern era for rigidly codifying the caste system and outlining restrictive rules regarding women.
+  source_data_available: 0
+  embeddings_generated: 0
+  file_name: None
+  file_location: None
+
+Record 19:
+  id: 16
+  rank: 16
+  title: Natya Shastra
+  category: Arts / Aesthetics
+  description: The Natya Shastra, attributed to the sage Bharata Muni, is the world's oldest surviving encyclopedic manual on the performing arts. Dating back to between 200 BCE and 200 CE, it is a massive text of 6,000 verses covering theater, classical Indian dance, and music. Its most profound contribution is the "Rasa Theory," an aesthetic concept detailing how art evokes deep emotional states (rasas) in the audience. It dictates rules for stage construction, acting techniques, makeup, musical scales, and rhythmic patterns, serving as the blueprint for all Indian classical arts to this day.
+  source_data_available: 0
+  embeddings_generated: 0
+  file_name: None
+  file_location: None
+
+Record 20:
+  id: 17
+  rank: 17
+  title: Bhagavata Purana
+  category: Purana / Devotion
+  description: Also known as the Srimad Bhagavatam, this is one of the eighteen Maha Puranas (Great Histories) and is arguably the most deeply loved and widely circulated among them. Composed around the 9th or 10th century CE, it is the supreme text of the Bhakti (devotion) movement in Vaishnavism. It contains the sweeping, highly emotive stories of the various avatars of the god Vishnu, but its core focuses intensely on the life, childhood, and divine play (Lila) of Lord Krishna. It beautifully elevates supreme, selfless love and devotion to God above all other spiritual paths.
+  source_data_available: 1
+  embeddings_generated: 0
+  file_name: Srimad-Bhagavad-Gita.txt
+  file_location: dharmaganj\ratnodadhi\srimadbhagavadgita\Srimad-Bhagavad-Gita.txt
+
