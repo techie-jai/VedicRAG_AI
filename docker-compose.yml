@@ -11,12 +11,21 @@ services:
       - nalanda-network
     environment:
       - OLLAMA_HOST=0.0.0.0:11435
+    entrypoint: /bin/sh
+    command: -c "ollama serve"
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://localhost:11435/api/tags || exit 1"]
       interval: 10s
       timeout: 5s
       retries: 5
       start_period: 30s
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
 
   chroma:
     image: chromadb/chroma:latest

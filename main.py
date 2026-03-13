@@ -33,11 +33,11 @@ async def lifespan(app: FastAPI):
     
     print(f"Initializing Ollama LLM from {OLLAMA_BASE_URL}...")
     llm = OllamaLLM(
-        model="gpt-oss:20b",
+        model="llama3.1:8b",
         base_url=OLLAMA_BASE_URL,
         request_timeout=300.0,
         temperature=0.1,
-        context_window=4096,
+        context_window=8192,
         system_prompt=(
             "You are a wise, highly accurate scholar of Ancient Indian Scriptures. "
             "You are the core intelligence of 'Digital Nalanda'. "
