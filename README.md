@@ -81,6 +81,55 @@ Successfully integrated **70 Hindu texts** from the Internet Sacred Text Archive
 
 All texts are extracted to plain text format and organized by category for easy integration into the RAG system.
 
+### V2.4 Update: SQLite Scripture Database (March 2026)
+Successfully created a **SQLite database** containing **228 scripture entries** from the Dharmaganj collection. This structured database enables efficient querying and integration with backend applications.
+
+**Database Details:**
+- **File**: `scriptures.db` (SQLite 3)
+- **Table**: `scriptures`
+- **Records**: 228 scripture entries
+- **Columns**: `id` (INTEGER PRIMARY KEY), `rank` (TEXT), `title` (TEXT), `category` (TEXT), `description` (TEXT)
+- **Source**: `dharmaganj/200 Scriptures Title.xlsx`
+
+**Setup Script:**
+```bash
+python setup_scriptures_db.py
+```
+
+This script:
+1. Reads the Excel file with CSV-formatted data
+2. Parses comma-separated values into structured columns
+3. Creates normalized SQLite database schema
+4. Inserts all 228 records with validation
+5. Verifies data integrity
+
+**Database Statistics:**
+- **Total Records**: 228
+- **Categories**: 130+ unique categories covering all domains of Vedic knowledge
+- **Top Categories**:
+  - Literature / Drama: 8 records
+  - Tamil Sangam Literature: 7 records
+  - Upanishad / Philosophy: 5 records
+  - Kashmir Shaivism: 5 records
+  - Astronomy: 5 records
+
+**Sample Query Examples:**
+```python
+import sqlite3
+
+conn = sqlite3.connect('scriptures.db')
+cursor = conn.cursor()
+
+# Get all Vedas
+cursor.execute("SELECT rank, title FROM scriptures WHERE category LIKE '%Vedas%'")
+
+# Search by title
+cursor.execute("SELECT * FROM scriptures WHERE title LIKE '%Upanishad%'")
+
+# Get specific record details
+cursor.execute("SELECT * FROM scriptures WHERE title = 'Bhagavad Gita'")
+```
+
 **Sacred Texts Hindu Collection - Complete Inventory (70 Texts):**
 
 #### The Vedas (10 texts)
